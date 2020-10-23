@@ -7,17 +7,10 @@ import $ from 'jquery';
 export const Login = () => {
 
     return (
-
         <div className="limiter">
             <div className="container-login100">
                 <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                     <form className="login100-form validate-form flex-sb flex-w">
-					<span className="login100-form-title p-b-53">
-						Sign In With
-                          <Link href="#" className="btn-google m-b-20" id="GoogleButton">
-                                Google
-                        </Link>
-					</span>
                         <div className="p-t-31 p-b-9">
 						<span className="txt1">
 							Username
@@ -85,7 +78,7 @@ function loginInternal() {
         "headers": {
             "Content-Type": "application/json"
         },
-        "data": JSON.stringify({"user": "denis", "password": "123"}),
+        "data": JSON.stringify({"user": login, "password": password}),
     };
 
 
