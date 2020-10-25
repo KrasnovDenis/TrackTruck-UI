@@ -1,8 +1,6 @@
 import React from 'react';
-import '../style/login.css';
+import '../style/pages/login.css';
 import {Link} from "react-router-dom";
-import '../configurations/config.json';
-import $ from 'jquery';
 
 export const Login = () => {
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import '../style/components/Navbar.css';
 
 export function Navbar(props) {
 
@@ -12,11 +13,10 @@ export function Navbar(props) {
         </li>);
     }
 
-
     return (
         <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
             <div className="navbar-nav mr-auto navbar-brand active col-1">
-                Диплом
+                <Link to="/">Диплом</Link>
             </div>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,9 +24,7 @@ export function Navbar(props) {
                     {htmlItems}
                 </ul>
             </div>
-
-
         </nav>
-    )
+    );
 
 }
