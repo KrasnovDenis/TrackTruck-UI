@@ -13,7 +13,7 @@ export function Admin(){
                 <div className="admin-info">
                     <h1>Кабинет администратора</h1>
                     <hr/>
-
+                        Добро пожаловать в кабинет администратора
                 </div>
             </div>
         </div>

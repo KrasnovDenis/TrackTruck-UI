@@ -12,7 +12,7 @@ export function Employees(){
             <SideBar menuItems = {sideBarItems}/>
             <div className="content-admin">
                 <div className="dsf">
-
+                    Список сотрудников
                 </div>
             </div>
         </div>

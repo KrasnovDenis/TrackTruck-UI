@@ -12,7 +12,7 @@ export function Messages(props){
             <SideBar menuItems = {sideBarItems}/>
             <div className="content-admin">
                 <div className="dsf">
-
+                    Message stub
                 </div>
             </div>
         </div>

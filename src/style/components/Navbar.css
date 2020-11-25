@@ -1,5 +1,6 @@
 .navbar{
-    background-color: #BF5730;
+    position: fixed;
+    min-width: 100%;
 }
 
 
@@ -9,7 +10,10 @@
 }
 
 .navbar a {
-    font-family: sans-serif, bold;
+    font-family: Tough, sans-serif;
     font-size: 20px;
-    color: #fff;
+    color: rgba(255, 255, 255, 1) !important;
+
 }
+
+

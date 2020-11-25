@@ -15,6 +15,7 @@ import {Statistics} from "./pages/user/Statistics";
 import {License} from "./pages/user/License";
 import {Feedback} from "./pages/user/Feedback";
 import {NotFound} from "./components/NotFound";
+import {Vehicle} from "./pages/user/Vehicle";
 
 function App() {
     setUpMenu();
@@ -35,6 +36,7 @@ function App() {
 
                    <Route path={'/customer'} exact component={PrivateArea}/>
                    <Route path={'/customer/vehicles'} exact component={Vehicles}/>
+                   <Route path={'/customer/vehicle/:id'} exact component={Vehicle}/>
                    <Route path={'/customer/statistics'} exact component={Statistics}/>
                    <Route path={'/customer/license'} exact component={License}/>
                    <Route path={'/customer/feedback'} exact component={Feedback}/>

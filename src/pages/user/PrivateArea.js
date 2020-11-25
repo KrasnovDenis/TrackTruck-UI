@@ -5,9 +5,11 @@ import '../../style/pages/Customer.css';
 export function PrivateArea (){
     const sideBarItems = setUpSideBar();
     return (
-        <dev className="feed">
-            <SideBar menuItems = {sideBarItems}/>
-        </dev>
+        <div className="feed">
+            <SideBar menuItems={sideBarItems}/>
+            <div className="content-customer">
+            </div>
+        </div>
     )
 }
 

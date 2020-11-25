@@ -5,9 +5,12 @@ import {setUpSideBar} from "./PrivateArea";
 export function Vehicle (){
     const sideBarItems = setUpSideBar();
     return (
-        <dev className="feed">
+        <div className="feed">
             <SideBar menuItems = {sideBarItems}/>
-        </dev>
+            <div className="content-customer">
+                Hi
+            </div>
+        </div>
     )
 }
 
