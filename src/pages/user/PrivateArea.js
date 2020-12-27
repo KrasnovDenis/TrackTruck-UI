@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {SideBar} from "../../components/SideBar";
 import '../../style/pages/Customer.css';
 
-export function PrivateArea (){
-    const sideBarItems = setUpSideBar();
-    return (
-        <div className="feed">
-            <SideBar menuItems={sideBarItems}/>
-            <div className="content-customer">
+class PrivateArea extends Component{
+    render () {
+        const sideBarItems = setUpSideBar();
+        return (
+            <div className="feed">
+                <SideBar menuItems={sideBarItems}/>
+                <div className="content-customer">
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
+export default PrivateArea
 
 export function setUpSideBar(){
     const items = new Map();

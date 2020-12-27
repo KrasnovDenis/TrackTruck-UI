@@ -5,7 +5,7 @@ import '../style/components/Navbar.css';
 export function Navbar(props) {
 
     const items =  new Map(JSON.parse(props.items));
-    var htmlItems = [];
+    let htmlItems = [];
 
     for (const [key, value] of items.entries()) {
         htmlItems.push(<li className='nav-item'>

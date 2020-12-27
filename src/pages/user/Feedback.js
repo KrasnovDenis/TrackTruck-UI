@@ -1,22 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {SideBar} from "../../components/SideBar";
 import {setUpSideBar} from "./PrivateArea";
 
-export function Feedback() {
-    const sideBarItems = setUpSideBar();
-    return (
+class Feedback extends Component {
+    render() {
+        const sideBarItems = setUpSideBar();
 
-        <div className="feed">
-            <SideBar menuItems={sideBarItems}/>
-            <div className="content-customer">
-                Связаться с администрацией
-                <form>
+        return (
 
-                </form>
+            <div className="feed">
+                <SideBar menuItems={sideBarItems}/>
+                <div className="content-customer">
+                    Связаться с администрацией
+                    <form>
+
+                    </form>
+                </div>
             </div>
-        </div>
-)
+        )
+    }
 }
+
+export default Feedback
 
 
 

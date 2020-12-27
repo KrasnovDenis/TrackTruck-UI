@@ -1,19 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {SideBar} from "../../components/SideBar";
 import {setUpSideBar} from "./PrivateArea";
 
-export function Statistics (){
-    const sideBarItems = setUpSideBar();
-    return (
-        <div className="feed">
-            <SideBar menuItems = {sideBarItems}/>
-            <div>
-                Hello
-            </div>
-        </div>
+class Statistics extends Component{
 
-    );
+    render(){
+        const sideBarItems = setUpSideBar();
+        return (
+            <div className="feed">
+                <SideBar menuItems = {sideBarItems}/>
+                <div>
+                    Hello
+                </div>
+            </div>
+
+        );
+    }
+
 }
 
 
-
+export default Statistics

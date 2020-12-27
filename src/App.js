@@ -1,21 +1,22 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
-import {About} from './pages/About';
+import About from './pages/About';
 import {Navbar} from './components/Navbar';
-import {PrivateArea} from "./pages/user/PrivateArea";
-import {Registration} from "./pages/Registration";
-import {Login} from "./pages/Login";
-import {Admin} from "./pages/admin/Admin";
-import {Customers} from "./pages/admin/Customers";
-import {Employees} from "./pages/admin/Employees";
-import {Messages} from "./pages/admin/Messages";
-import {Vehicles} from "./pages/user/Vehicles";
-import {Statistics} from "./pages/user/Statistics";
-import {License} from "./pages/user/License";
-import {Feedback} from "./pages/user/Feedback";
+import PrivateArea from "./pages/user/PrivateArea";
+import Registration from "./pages/Registration";
+import Login from "./pages/Login";
+import Admin from "./pages/admin/Admin";
+import Customers from "./pages/admin/Customers";
+import Employees from "./pages/admin/Employees";
+import Messages from "./pages/admin/Messages";
+import Vehicles from "./pages/user/Vehicles";
+import Statistics from "./pages/user/Statistics";
+import License from "./pages/user/License";
+import Feedback from "./pages/user/Feedback";
 import {NotFound} from "./components/NotFound";
-import {Vehicle} from "./pages/user/Vehicle";
+import Vehicle from "./pages/user/Vehicle";
+import Parks from "./pages/user/Parks";
 
 function App() {
     setUpMenu();
@@ -40,7 +41,7 @@ function App() {
                    <Route path={'/customer/statistics'} exact component={Statistics}/>
                    <Route path={'/customer/license'} exact component={License}/>
                    <Route path={'/customer/feedback'} exact component={Feedback}/>
-
+                   <Route path={'/customer/parks'} exact component={Parks}/>
                    <Route component={NotFound} />
                </Switch>
         </BrowserRouter>
