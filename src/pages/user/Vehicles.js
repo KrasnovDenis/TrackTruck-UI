@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {SideBar} from "../../components/SideBar";
 import {setUpSideBar} from "./PrivateArea";
-import {AutoPark} from "../../components/customer/AutoPark";
+import {ParkLabel} from "../../components/customer/ParkLabel";
+import {VehicleLabel} from "../../components/customer/VehicleLabel";
 
 class Vehicles extends Component {
     render() {
@@ -10,7 +11,7 @@ class Vehicles extends Component {
             <div className="feed">
                 <SideBar menuItems={sideBarItems}/>
                 <div className='content-customer'>
-                    <AutoPark/>
+                    <VehicleLabel cars={getCarInfoStub()}/>
                 </div>
             </div>
         )
@@ -18,3 +19,11 @@ class Vehicles extends Component {
 }
 
 export default Vehicles
+
+function getCarInfoStub() {
+    return {
+        id: "1",
+        owner: "ООО Зеленоглазое Такси",
+        name: "Парк сокольники"
+    };
+}

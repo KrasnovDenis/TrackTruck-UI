@@ -19,24 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="Added CarRepo.js and ParkRepo.js repositories">
-      <change afterPath="$PROJECT_DIR$/src/pages/user/Parks.js" afterDir="false" />
+    <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/user/Park.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Customers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Customers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Employees.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Employees.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/Feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Feedback.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/License.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/License.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Notes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/customer/AutoPark.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/customer/ParkLabel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/customer/Vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/customer/VehicleLabel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user/Parks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Parks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/user/PrivateArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/PrivateArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/Statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Statistics.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/user/Vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Vehicle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/user/Vehicles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Vehicles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CarRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CarRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/ParkRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ParkRepo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +110,7 @@
       <workItem from="1607635578461" duration="1106000" />
       <workItem from="1608484848693" duration="599000" />
       <workItem from="1609067799070" duration="6649000" />
-      <workItem from="1609090129744" duration="4040000" />
+      <workItem from="1609090129744" duration="14577000" />
     </task>
     <task id="LOCAL-00001" summary="added: users's pages &#10;added: admin's pages&#10;&#10;removed: fucking fonts&#10;&#10;renamed: PrivateArea.js to Customers.js&#10;&#10;maybe something else... I don't really care about it">
       <created>1603654773057</created>
@@ -131,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609079603059</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Modified : Replace functions to classes">
+      <created>1609094529829</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609094529830</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +154,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added: users's pages &#10;added: admin's pages&#10;&#10;removed: fucking fonts&#10;&#10;renamed: PrivateArea.js to Customers.js&#10;&#10;maybe something else... I don't really care about it" />
     <MESSAGE value="Added CarRepo.js and ParkRepo.js repositories" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CarRepo.js and ParkRepo.js repositories" />
+    <MESSAGE value="Modified : Replace functions to classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified : Replace functions to classes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

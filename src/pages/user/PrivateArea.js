@@ -19,7 +19,7 @@ export default PrivateArea
 
 export function setUpSideBar(){
     const items = new Map();
-    items.set('/customer/vehicles', 'Автопарк');
+    items.set('/customer/parks', 'Автопарки');
     items.set('/customer/statistics', 'Статистика по парку');
     items.set('/customer/license', 'Лицензия');
     items.set('/customer/feedback', 'Связь с администрацией');

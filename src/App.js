@@ -17,6 +17,7 @@ import Feedback from "./pages/user/Feedback";
 import {NotFound} from "./components/NotFound";
 import Vehicle from "./pages/user/Vehicle";
 import Parks from "./pages/user/Parks";
+import Park from "./pages/user/Park";
 
 function App() {
     setUpMenu();
@@ -42,6 +43,7 @@ function App() {
                    <Route path={'/customer/license'} exact component={License}/>
                    <Route path={'/customer/feedback'} exact component={Feedback}/>
                    <Route path={'/customer/parks'} exact component={Parks}/>
+                   <Route path={'/customer/park/:id'} exact component={Park}/>
                    <Route component={NotFound} />
                </Switch>
         </BrowserRouter>

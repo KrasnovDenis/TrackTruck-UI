@@ -4,12 +4,16 @@ const PARKS_REST = 'http://localhost:8080/parks';
 
 class ParkRepo {
 
-    getParkById(){
+    getParkById(id){
         return axios.get(`${PARKS_REST}/${id}`);
     }
 
-    getAllParks(){
-        return axios.get(PARKS_REST);
+    getAllParksNames(userId){
+        return axios.get(`${PARKS_REST}/names/${userId}`);
+    }
+
+    getAllParksIds(userId){
+        return axios.get(`${PARKS_REST}/ids/${userId}`);
     }
 
     createPark(park){
@@ -43,4 +47,4 @@ class ParkRepo {
 
 }
 
-export default ParkRepo;
+export default new ParkRepo;

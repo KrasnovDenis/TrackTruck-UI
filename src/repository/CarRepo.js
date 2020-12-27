@@ -27,7 +27,6 @@ class CarRepo {
             description: car.description
         });
     }
-
 }
 
-export default CarRepo;
+export default new CarRepo;
