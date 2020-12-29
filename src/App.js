@@ -52,9 +52,9 @@ function App() {
 
 function setUpMenu() {
     const items = new Map();
-    items.set('/', 'Home');
-    items.set('/about', 'About us');
-    items.set('/login', 'Login');
+    items.set('/', 'Главная');
+    items.set('/about', 'О нас');
+    items.set('/login', 'Войти');
 
     sessionStorage.setItem('menu-items', JSON.stringify(Array.from(items.entries())));
 

@@ -47,4 +47,4 @@ class ParkRepo {
 
 }
 
-export default new ParkRepo;
+export default new ParkRepo();

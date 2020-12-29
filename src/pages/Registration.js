@@ -4,7 +4,7 @@ class Registration extends Component {
 
     render() {
         return (
-            <div className="Registration">
+            <div className="Registration content-customer">
                 <h1>Registration</h1>
             </div>
         )

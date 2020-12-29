@@ -389,13 +389,11 @@ iframe {
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
-    width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-block;
 }
 
 .login100-form-btn {
@@ -407,10 +405,12 @@ iframe {
     justify-content: center;
     align-items: center;
     padding: 0 20px;
-    width: 100%;
+    width: 150px;
     height: 60px;
     background-color: #333333;
     border-radius: 10px;
+    top:10px;
+    margin: 0 40px 0 40px ;
 
     font-family: Poppins-Medium;
     font-size: 16px;
