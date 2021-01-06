@@ -20,13 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/repository/LoginRepo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/ParkRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ParkRepo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/pages/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CarRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CarRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/LoginRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/LoginRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/UserRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/UserRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,14 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1inMwAiXkl2o4Ee40yJ04sU4QA8" />
   <component name="ProjectLevelVcsManager">
@@ -106,7 +116,8 @@
       <workItem from="1608484848693" duration="599000" />
       <workItem from="1609067799070" duration="6649000" />
       <workItem from="1609090129744" duration="14960000" />
-      <workItem from="1609263224971" duration="9095000" />
+      <workItem from="1609263224971" duration="9487000" />
+      <workItem from="1609932544716" duration="16621000" />
     </task>
     <task id="LOCAL-00001" summary="added: users's pages &#10;added: admin's pages&#10;&#10;removed: fucking fonts&#10;&#10;renamed: PrivateArea.js to Customers.js&#10;&#10;maybe something else... I don't really care about it">
       <created>1603654773057</created>
@@ -136,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609105568359</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Этот коммит является неконсистентным, но мне надо идти спать :С">
+      <created>1609272614472</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609272614472</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +177,8 @@
     <MESSAGE value="Added CarRepo.js and ParkRepo.js repositories" />
     <MESSAGE value="Modified : Replace functions to classes" />
     <MESSAGE value="added new components and routes... fetch first data from rest next commit is next part of this commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new components and routes... fetch first data from rest next commit is next part of this commit" />
+    <MESSAGE value="Этот коммит является неконсистентным, но мне надо идти спать :С" />
+    <option name="LAST_COMMIT_MESSAGE" value="Этот коммит является неконсистентным, но мне надо идти спать :С" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

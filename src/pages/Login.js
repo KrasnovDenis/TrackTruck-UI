@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import '../style/pages/login.css';
 import {Link} from "react-router-dom";
 import LoginRepo from "../repository/LoginRepo";
+import Registration from "./Registration";
+import {Button} from "reactstrap";
 
 class Login extends Component {
 
@@ -18,10 +20,19 @@ class Login extends Component {
         this.setState({[name]: value});
     }
 
-    onLogin = () =>{
-        alert("Login");
-        LoginRepo.login(this.state.email, this.state.password)
-            .then(r =>alert(r.status) )
+    onLogin = async () => {
+        try {
+            const email = this.state.email
+            const password = this.state.password
+            const response = await LoginRepo.login(email, password)
+            localStorage.setItem('Authorization', "Basic " + btoa(email + ':' + password))
+            localStorage.setItem('firstName',response.data.firstName)
+            localStorage.setItem('lastName',response.data.lastName)
+            localStorage.setItem('picture',response.data.picture)
+            localStorage.setItem('email',response.data.email)
+        } catch (rejectedValue) {
+            alert("Неверные логин или пароль");
+        }
     }
 
     render() {
@@ -44,35 +55,31 @@ class Login extends Component {
 						<span className="txt1">
 							Пароль
 						</span>
-
-
                             </div>
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
                                 <input className="input100" onChange={this.onChange} type="password" name="password"/>
                                 <span className="focus-input100"/>
 
                             </div>
-
-                            <div className="container-login100-form-btn m-t-17">
-                                <button type="button" onClick={this.onLogin} className="login100-form-btn">
-                                    Войти
-                                </button>
-                            </div>
+                            <Button
+                                color="dark"
+                                style={{marginBottom: '2rem'}}
+                                onClick={this.onLogin}>
+                                Войти
+                            </Button>
                         </div>
-                        <div className="container-login100-form-btn m-t-17">
-                            <Link to={"/registration"}>
-                                <button className="login100-form-btn">
-                                    Зарегистрироваться
-                                </button>
+
+                        <Fragment>
+                            <Registration/>
+                        </Fragment>
+
+                        <div className="w-full text-center p-t-55">
+
+                            <br/>
+                            <Link to={'#'} className="txt2 bo1 m-l-5">
+                                Забыли пароль?
                             </Link>
                         </div>
-                            <div className="w-full text-center p-t-55">
-
-                                <br/>
-                                <Link to={'#'} className="txt2 bo1 m-l-5">
-                                    Забыли пароль?
-                                </Link>
-                            </div>
 
                     </div>
                 </div>

@@ -29,4 +29,4 @@ class CarRepo {
     }
 }
 
-export default new CarRepo;
+export default new CarRepo();
