@@ -1,0 +1,12 @@
+
+.HomeContainer{
+    background-image: url('../images/figures1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+p {
+    font-family: sans-serif-bold;
+    font-size:22px;
+    max-width: 1330px !important;
+}

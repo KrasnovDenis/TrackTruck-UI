@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import {Navbar} from './components/Navbar';
 import PrivateArea from "./pages/user/PrivateArea";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
@@ -18,6 +17,7 @@ import {NotFound} from "./components/NotFound";
 import Vehicle from "./pages/user/Vehicle";
 import Parks from "./pages/user/Parks";
 import Park from "./pages/user/Park";
+import Navbar from "./components/Navbar";
 
 function App() {
     setUpMenu();
@@ -54,7 +54,6 @@ function setUpMenu() {
     const items = new Map();
     items.set('/', 'Главная');
     items.set('/about', 'О нас');
-    items.set('/login', 'Войти');
 
     sessionStorage.setItem('menu-items', JSON.stringify(Array.from(items.entries())));
 

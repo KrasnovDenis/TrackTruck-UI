@@ -2,6 +2,5 @@ div.NotFound {
     height: 10em;
     display: flex;
     align-items: center;
-    justify-content: center }
-div.NotFound h1 {
-    margin: 0 }
+    justify-content: center;
+}

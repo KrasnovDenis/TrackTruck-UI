@@ -14,7 +14,7 @@
 
 body, html {
     height: 100%;
-    font-family: Poppins-Regular, sans-serif;
+
 }
 
 /*---------------------------------------------*/
@@ -182,12 +182,6 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
-
-.limiter {
-    width: 100%;
-    margin: 0 auto;
-}
-
 .container-login100 {
     width: 100%;
     min-height: 100vh;
@@ -199,8 +193,8 @@ iframe {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 15px;
 
+    font-family: Poppins-Regular, sans-serif;
     background-image: url('../images/bg-01.jpg');
     background-position: center;
     background-size: cover;

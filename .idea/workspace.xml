@@ -20,15 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/style/images/blue-sweater.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/images/figures1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/pages/Home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/CarRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CarRepo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/LoginRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/LoginRepo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/UserRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/UserRepo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/components/NotFound.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/NotFound.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/pages/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/pages/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/login.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -71,7 +77,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/style/fonts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -85,15 +91,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages/admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\fonts" />
+      <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\images" />
       <recent name="$PROJECT_DIR$/src/pages/admin" />
       <recent name="$PROJECT_DIR$/src/style" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/style/components" />
-      <recent name="$PROJECT_DIR$/src/style/pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\fonts" />
+      <recent name="$PROJECT_DIR$/src/pages/admin" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -118,6 +125,7 @@
       <workItem from="1609090129744" duration="14960000" />
       <workItem from="1609263224971" duration="9487000" />
       <workItem from="1609932544716" duration="16621000" />
+      <workItem from="1610898586250" duration="10516000" />
     </task>
     <task id="LOCAL-00001" summary="added: users's pages &#10;added: admin's pages&#10;&#10;removed: fucking fonts&#10;&#10;renamed: PrivateArea.js to Customers.js&#10;&#10;maybe something else... I don't really care about it">
       <created>1603654773057</created>
@@ -180,5 +188,35 @@
     <MESSAGE value="Этот коммит является неконсистентным, но мне надо идти спать :С" />
     <option name="LAST_COMMIT_MESSAGE" value="Этот коммит является неконсистентным, но мне надо идти спать :С" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610924162730">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="421" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1610924162730" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1610916726586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1610916726586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1610916726586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1610916726586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1610922498589">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1610922498589" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1610922331884">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610922331884" />
   </component>
 </project>
