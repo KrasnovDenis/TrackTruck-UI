@@ -60,12 +60,3 @@ class Parks extends Component {
 }
 
 export default Parks
-
-
-function getParkInfoStub() {
-    return {
-        id: "1",
-        owner: "ООО Зеленоглазое Такси",
-        name: "Парк сокольники"
-    };
-}

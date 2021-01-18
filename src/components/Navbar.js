@@ -4,10 +4,6 @@ import '../style/components/Navbar.css';
 
 class Navbar extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
 
         const items = new Map(JSON.parse(this.props.items));

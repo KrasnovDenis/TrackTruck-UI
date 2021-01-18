@@ -21,14 +21,7 @@ class ParkRepo {
     }
 
     updatePark(park){
-        return axios.put(PARKS_REST, park
-        //     {
-        //     id : park.id,
-        //     name: park.name,
-        //     owner: park.owner,
-        //     cars: park.cars
-        // }
-        );
+        return axios.put(PARKS_REST, park);
     }
 
     deletePark(id){

@@ -4,11 +4,6 @@ import {Link} from "react-router-dom";
 
 //это один парк (всмысле маленк)
 class ParkLabel extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
 
         return (<div>

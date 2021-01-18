@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {SideBar} from "../../components/SideBar";
 import {setUpSideBar} from "./PrivateArea";
-import {ParkLabel} from "../../components/parks/ParkLabel";
 import {VehicleLabel} from "../../components/customer/VehicleLabel";
 
 class Vehicles extends Component {
