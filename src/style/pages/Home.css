@@ -1,12 +1,23 @@
 
 .HomeContainer{
-    background-image: url('../images/figures1.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+
 }
 p {
-    font-family: sans-serif-bold;
+    font-family: sans-serif-bold, serif;
     font-size:22px;
     max-width: 1330px !important;
+}
+
+.InfoContent{
+    background: white;
+}
+
+.sideCol {
+    background-image: url('../images/figures1.jpg');
+    background-position: center;
+    background-repeat: repeat-x;
+}
+
+.Benefit{
+    background: #e8ff00;
 }

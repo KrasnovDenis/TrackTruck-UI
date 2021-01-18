@@ -1,25 +1,67 @@
 import React, {Component} from 'react';
 import sweater from "../style/images/blue-sweater.jpg";
+import truck from "../style/images/icons/truck.png";
 import {Col, Container, Row} from 'reactstrap';
 import "../style/pages/Home.css"
+import Footer from "../components/Footer";
 
 class Home extends Component {
 
     render() {
         return (
-                <Container className="HomeContainer" fluid="true" >
+            <div>
+                <Container fluid="true">
                     <Row>
-                        <Col sm="1"></Col>
+                        <Col className="sideCol" sm="1"/>
                         <Col style={{fontFamily: "Impact", fontSize: "16px"}}>
                             <h1>Автопарк расширяется ? </h1>
-                            <h1>Cтановится сложно управлять?</h1>
-                            <h2> Мы поможем!</h2>
+                            <h1>Мониторинг отнимает много времени?</h1>
+                            <hr/>
+                            <h2> Мы знаем как вам помочь!</h2>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <h4>Мониторинг автопарка без ограничений!</h4>
+                            <ul>
+                                <li>Высокая надежность</li>
+                                <li>Низкие цены</li>
+                                <li>Понятные графики</li>
+                            </ul>
                         </Col>
                         <Col>
                             <img src={sweater} alt="Кортиночка" width="450px"/>
                         </Col>
+                        <Col className="sideCol" sm="1"/>
+                    </Row>
+                    <Row className="Benefit">
+                        <Col>
+                            <h3 style={{textAlign: "center"}}> Наши основные преимущества</h3>
+                        </Col>
+                        <br/>
+                    </Row>
+                    <Row className="Benefit">
+                        <hr/>
+                        <Col sm="2"/>
+                        <Col>
+                            <h4>Надежность</h4>
+                            <img src={truck} alt="Кортиночка" width="150px"/>
+                        </Col>
+                        <Col>
+                            <h4>Надежность</h4>
+                            <img src={truck} alt="Кортиночка" width="150px"/>
+                        </Col>
+                        <Col>
+                            <h4>Надежность</h4>
+                            <img src={truck} alt="Кортиночка" width="150px"/>
+                        </Col>
+                        <Col sm="2"/>
                     </Row>
                 </Container>
+
+                <Footer/>
+            </div>
         );
     }
 

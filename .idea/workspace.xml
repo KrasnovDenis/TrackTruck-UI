@@ -19,22 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/style/images/blue-sweater.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style/images/figures1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style/pages/Home.css" afterDir="false" />
+    <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="Этот коммит является неконсистентным, но мне надо идти спать :С">
+      <change afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/components/NotFound.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/NotFound.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/pages/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/pages/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/images/figures1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/images/figures1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/Home.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -125,7 +115,7 @@
       <workItem from="1609090129744" duration="14960000" />
       <workItem from="1609263224971" duration="9487000" />
       <workItem from="1609932544716" duration="16621000" />
-      <workItem from="1610898586250" duration="10516000" />
+      <workItem from="1610898586250" duration="14125000" />
     </task>
     <task id="LOCAL-00001" summary="added: users's pages &#10;added: admin's pages&#10;&#10;removed: fucking fonts&#10;&#10;renamed: PrivateArea.js to Customers.js&#10;&#10;maybe something else... I don't really care about it">
       <created>1603654773057</created>
@@ -162,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609272614472</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Этот коммит является неконсистентным, но мне надо идти спать :С">
+      <created>1610926815804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610926815805</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +207,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1610926842428">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1610926842428" />
     <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1610922498589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
