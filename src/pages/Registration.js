@@ -25,7 +25,7 @@ class Registration extends Component {
 
     }
 
-    onSubmit = (e) => {
+    onSubmit = async (e) => {
         e.preventDefault();
         let user = {
             email: this.state.email,
@@ -34,15 +34,13 @@ class Registration extends Component {
             lastName: this.state.lastName,
             createTime: Date.now().toString(10)
         }
-
-        LoginRepo.registration(user).then(r => function () {
-            if (r.status === 200) {
-                alert("Регистрация прошла успешно!");
-                window.location.href = '/login';
-            } else {
-                alert("Проверьте введенные параметры");
-            }
-        })
+        try {
+            const response = await LoginRepo.registration(user);
+            alert("Регистрация прошла успешно!");
+            window.location.href = '/login';
+        } catch (rejectedValue) {
+            alert("Проверьте введенные параметры");
+        }
     }
 
     render() {

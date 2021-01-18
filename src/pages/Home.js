@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import sweater from "../style/images/blue-sweater.jpg";
-import truck from "../style/images/icons/truck.png";
 import {Col, Container, Row} from 'reactstrap';
 import "../style/pages/Home.css"
 import Footer from "../components/Footer";
@@ -44,18 +43,7 @@ class Home extends Component {
                     <Row className="Benefit">
                         <hr/>
                         <Col sm="2"/>
-                        <Col>
-                            <h4>Надежность</h4>
-                            <img src={truck} alt="Кортиночка" width="150px"/>
-                        </Col>
-                        <Col>
-                            <h4>Надежность</h4>
-                            <img src={truck} alt="Кортиночка" width="150px"/>
-                        </Col>
-                        <Col>
-                            <h4>Надежность</h4>
-                            <img src={truck} alt="Кортиночка" width="150px"/>
-                        </Col>
+
                         <Col sm="2"/>
                     </Row>
                 </Container>
