@@ -1,15 +1,12 @@
 .sidenav {
     height: 100%;
-    width: 200px;
+    width: 220px;
     position: fixed;
     z-index: 1;
     top: 65px;
     left: 0;
     background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-    padding-right: 100px;
-    margin-right: 100px;
+    padding: 20px 10px;
 }
 @font-face {
     font-family: Tough;

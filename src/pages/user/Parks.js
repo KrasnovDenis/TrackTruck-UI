@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import {SideBar} from "../../components/SideBar";
 import {setUpSideBar} from "./PrivateArea";
-import ParkLabel from "../../components/customer/ParkLabel";
+import ParkLabel from "../../components/parks/ParkLabel";
 import "../../style/components/customer/Vehicle.css";
 import ParkRepo from "../../repository/ParkRepo";
+import {Col, Container, Row} from "reactstrap";
+import ModalAddPark from "../../components/parks/ModalAddPark";
 
-//это список парков
 class Parks extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +17,7 @@ class Parks extends Component {
     }
 
     componentDidMount() {
-        let userId = "9ba18258-4560-11eb-b378-0242ac130002" // localStorage.getItem("userId")
+        let userId = localStorage.getItem("userId")
         ParkRepo.getAllParksNames(userId).then((response) => {
             this.setState({
                 parkNames: response.data
@@ -34,9 +35,25 @@ class Parks extends Component {
         return (
             <div className="content-customer">
                 <SideBar menuItems={setUpSideBar()}/>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h3>Управление парками</h3>
+                        </Col>
+                        <Col className="sm-1">
+                            <ModalAddPark/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <h3>Управление парками</h3>
+                        </Col>
+                    </Row>
+                </Container>
                 {
                     this.state.parkNames.forEach(park1 => <ParkLabel park={park1}/>)
                 }
+
             </div>
         )
     }

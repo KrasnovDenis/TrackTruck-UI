@@ -35,7 +35,7 @@ class Registration extends Component {
             createTime: Date.now().toString(10)
         }
         try {
-            const response = await LoginRepo.registration(user);
+            await LoginRepo.registration(user);
             alert("Регистрация прошла успешно!");
             window.location.href = '/login';
         } catch (rejectedValue) {

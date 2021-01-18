@@ -17,20 +17,18 @@ class ParkRepo {
     }
 
     createPark(park){
-        return axios.post(PARKS_REST, {
-            id : park.id,
-            name: park.name,
-            owner: park.owner
-        });
+        return axios.post(PARKS_REST, park);
     }
 
     updatePark(park){
-        return axios.put(PARKS_REST, {
-            id : park.id,
-            name: park.name,
-            owner: park.owner,
-            cars: park.cars
-        });
+        return axios.put(PARKS_REST, park
+        //     {
+        //     id : park.id,
+        //     name: park.name,
+        //     owner: park.owner,
+        //     cars: park.cars
+        // }
+        );
     }
 
     deletePark(id){

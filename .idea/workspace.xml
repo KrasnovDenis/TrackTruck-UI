@@ -19,13 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="Этот коммит является неконсистентным, но мне надо идти спать :С">
-      <change afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
+    <list default="true" id="784466e5-c77a-45c8-b194-d6059a6d8f5f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/parks/ModalAddPark.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/customer/ParkLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/parks/ParkLabel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/images/figures1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/images/figures1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user/Parks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Parks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user/Vehicles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Vehicles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CarRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CarRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/ParkRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ParkRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/UserRepo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/UserRepo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/components/SideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/SideBar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,16 +87,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\fonts" />
+      <recent name="$PROJECT_DIR$/src/pages/admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/parks" />
       <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\fonts" />
       <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\images" />
       <recent name="$PROJECT_DIR$/src/pages/admin" />
       <recent name="$PROJECT_DIR$/src/style" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\KPACHOB\Desktop\monitor-client-front\src\style\fonts" />
-      <recent name="$PROJECT_DIR$/src/pages/admin" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -160,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610926815805</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed registration error message">
+      <created>1611005663091</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611005663091</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,41 +196,20 @@
     <MESSAGE value="Modified : Replace functions to classes" />
     <MESSAGE value="added new components and routes... fetch first data from rest next commit is next part of this commit" />
     <MESSAGE value="Этот коммит является неконсистентным, но мне надо идти спать :С" />
-    <option name="LAST_COMMIT_MESSAGE" value="Этот коммит является неконсистентным, но мне надо идти спать :С" />
+    <MESSAGE value="Fixed registration error message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed registration error message" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="421" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610924162730">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="421" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1610924162730" />
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1610916726586">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
-    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1610916726586">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
-    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1610916726586">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
-    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1610916726586">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610916726586" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1610926842428">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1610926842428" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1610922498589">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1610922498589" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1610922331884">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610922331884" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pages/user/Parks.js</url>
+          <line>40</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

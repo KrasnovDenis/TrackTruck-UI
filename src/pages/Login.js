@@ -30,6 +30,8 @@ class Login extends Component {
             localStorage.setItem('lastName',response.data.lastName)
             localStorage.setItem('picture',response.data.picture)
             localStorage.setItem('email',response.data.email)
+            localStorage.setItem('userId',response.data.id)
+            window.location.href="/customer";
         } catch (rejectedValue) {
             alert("Неверные логин или пароль");
         }
