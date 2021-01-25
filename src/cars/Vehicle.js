@@ -7,6 +7,7 @@ import carPic from "../style/images/icons/car_pic.jpeg";
 import lineDiagram from "../style/images/line-diagram.png";
 import circleDiagram from "../style/images/circle-diagram.png";
 import "../style/components/customer/Vehicle.css"
+import ModalAddCar from "./ModalAddCar";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -41,18 +42,20 @@ class Vehicle extends Component {
                 <div className="content-customer">
                     <Container>
                         <Row>
-                            <Col>
+                            <Col sm="4">
                                 <img className="car-img-top" alt="машина" width="250px" style={{borderRadius: "50px"}}
                                      src={carPic}/>
                             </Col>
-                            <Col>
+                            <Col sm="7">
                                 <div>
-                                    <div> Модель : {this.state.model}</div>
-                                    <div> Описание : {this.state.description}</div>
-                                    <div> Парк : {this.state.park}</div>
+                                    <h4> Модель : {this.state.model}</h4>
+                                    <h4> Описание : {this.state.description}</h4>
+                                    <h4> Парк : {this.state.park}</h4>
                                 </div>
+                                <br/>
+                                <br/>
+                                <ModalAddCar/>
                             </Col>
-                            <Col/>
                         </Row>
                         <br/>
                         <br/>
