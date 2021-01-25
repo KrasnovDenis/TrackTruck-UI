@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
-import ParkRepo from "../../repository/ParkRepo";
+import ParkRepo from "../repository/ParkRepo";
 
 class ModalAddPark extends Component {
 

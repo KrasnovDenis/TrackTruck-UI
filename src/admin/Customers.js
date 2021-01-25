@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {SideBar} from "../../components/SideBar";
-import '../../style/pages/Admin.css';
+import {SideBar} from "../common/SideBar";
+import '../style/pages/Admin.css';
 import {setUpSideBar} from "./Admin";
 
-class Employees extends Component {
+class Customers extends Component {
     render() {
         let sideBarItems;
-
         sideBarItems = setUpSideBar();
 
         return (
@@ -14,7 +13,7 @@ class Employees extends Component {
                 <SideBar menuItems={sideBarItems}/>
                 <div className="content-admin">
                     <div className="dsf">
-                        Список сотрудников
+                        Наши клиенты
                     </div>
                 </div>
             </div>
@@ -22,6 +21,6 @@ class Employees extends Component {
     }
 }
 
-export default Employees
 
+export default Customers
 

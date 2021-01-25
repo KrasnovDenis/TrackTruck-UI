@@ -8,11 +8,7 @@ class ParkRepo {
         return axios.get(`${PARKS_REST}/${id}`);
     }
 
-    getAllParksNames(userId){
-        return axios.get(`${PARKS_REST}/names/${userId}`);
-    }
-
-    getAllParksIds(userId){
+    getAllParksByOwner(userId){
         return axios.get(`${PARKS_REST}/ids/${userId}`);
     }
 

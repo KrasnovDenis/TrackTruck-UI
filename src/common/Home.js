@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import sweater from "../style/images/blue-sweater.jpg";
 import {Col, Container, Row} from 'reactstrap';
 import "../style/pages/Home.css"
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 
 class Home extends Component {
 

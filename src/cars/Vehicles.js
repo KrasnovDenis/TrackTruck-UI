@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {SideBar} from "../../components/SideBar";
-import {setUpSideBar} from "./PrivateArea";
-import {VehicleLabel} from "../../components/customer/VehicleLabel";
+import {SideBar} from "../common/SideBar";
+import {setUpSideBar} from "../user/PrivateArea";
+import {VehicleLabel} from "./VehicleLabel";
 import {Col, Container, Row} from "reactstrap";
 
 class Vehicles extends Component {
@@ -21,17 +21,13 @@ class Vehicles extends Component {
                     <br/>
                     <Row>
                         <Col className="sm-1 lg-1">
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
-                            <VehicleLabel cars={getCarInfoStub()}/>
+                            <VehicleLabel car={getCarInfoStub()}/>
+                            <VehicleLabel car={getCarInfoStub()}/>
+                            <VehicleLabel car={getCarInfoStub()}/>
+                            <VehicleLabel car={getCarInfoStub()}/>
+                            <VehicleLabel car={getCarInfoStub()}/>
+                            <VehicleLabel car={getCarInfoStub()}/>
+
                         </Col>
                     </Row>
 

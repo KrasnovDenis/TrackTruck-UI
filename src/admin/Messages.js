@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {SideBar} from "../../components/SideBar";
-import '../../style/pages/Admin.css';
+import {SideBar} from "../common/SideBar";
+import '../style/pages/Admin.css';
 import {setUpSideBar} from "./Admin";
 
 class Messages extends Component {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {SideBar} from "../../components/SideBar";
-import '../../style/pages/Customer.css';
+import {SideBar} from "../common/SideBar";
+import '../style/pages/Customer.css';
 
 class PrivateArea extends Component{
     render () {

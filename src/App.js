@@ -1,23 +1,23 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import PrivateArea from "./pages/user/PrivateArea";
+import Home from './common/Home';
+import About from './common/About';
+import PrivateArea from "./user/PrivateArea";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
-import Admin from "./pages/admin/Admin";
-import Customers from "./pages/admin/Customers";
-import Employees from "./pages/admin/Employees";
-import Messages from "./pages/admin/Messages";
-import Vehicles from "./pages/user/Vehicles";
-import Statistics from "./pages/user/Statistics";
-import License from "./pages/user/License";
-import Feedback from "./pages/user/Feedback";
-import {NotFound} from "./components/NotFound";
-import Vehicle from "./pages/user/Vehicle";
-import Parks from "./pages/user/Parks";
-import Park from "./pages/user/Park";
-import Navbar from "./components/Navbar";
+import Admin from "./admin/Admin";
+import Customers from "./admin/Customers";
+import Employees from "./admin/Employees";
+import Messages from "./admin/Messages";
+import Vehicles from "./cars/Vehicles";
+import Statistics from "./user/Statistics";
+import License from "./user/License";
+import Feedback from "./user/Feedback";
+import {NotFound} from "./common/NotFound";
+import Vehicle from "./cars/Vehicle";
+import Parks from "./parks/Parks";
+import Park from "./parks/Park";
+import Navbar from "./common/Navbar";
 
 function App() {
     setUpMenu();
@@ -38,12 +38,12 @@ function App() {
 
                    <Route path={'/customer'} exact component={PrivateArea}/>
                    <Route path={'/customer/vehicles'} exact component={Vehicles}/>
-                   <Route path={'/customer/vehicle/:id'} exact component={Vehicle}/>
+                   <Route path={'/customer/vehicles/:id'} exact component={Vehicle}/>
                    <Route path={'/customer/statistics'} exact component={Statistics}/>
                    <Route path={'/customer/license'} exact component={License}/>
                    <Route path={'/customer/feedback'} exact component={Feedback}/>
                    <Route path={'/customer/parks'} exact component={Parks}/>
-                   <Route path={'/customer/park/:id'} exact component={Park}/>
+                   <Route path={'/customer/parks/:id'} exact component={Park}/>
                    <Route component={NotFound} />
                </Switch>
         </BrowserRouter>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SideBar} from "../../components/SideBar";
+import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "./PrivateArea";
 
 class Statistics extends Component{

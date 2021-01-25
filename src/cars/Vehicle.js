@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {SideBar} from "../../components/SideBar";
-import {setUpSideBar} from "./PrivateArea";
-import CarRepo from "../../repository/CarRepo";
+import {SideBar} from "../common/SideBar";
+import {setUpSideBar} from "../user/PrivateArea";
+import CarRepo from "../repository/CarRepo";
 
 class Vehicle extends Component {
     constructor(props) {
