@@ -1,3 +1,6 @@
-.car-img-top{
-    max-width: 350px;
+.car {
+    display: inline-block;
+}
+.car-body{
+    width: 16rem;
 }

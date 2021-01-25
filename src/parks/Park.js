@@ -35,7 +35,7 @@ class Park extends Component {
 
             <h1>Парк : {this.state.name}</h1>
             <br/>
-            <div>Машины</div>
+            <h4>Машины</h4>
 
             {
                 this.state.cars.map(car => <VehicleLabel car={car}/>)
