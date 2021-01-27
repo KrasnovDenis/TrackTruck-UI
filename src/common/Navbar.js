@@ -1,28 +1,37 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import '../style/components/Navbar.css';
+import {menuItems} from "../App";
 
 class Navbar extends Component {
 
     render() {
 
-        const items = new Map(JSON.parse(this.props.items));
-        let htmlItems = [];
-
-        for (const [key, value] of items.entries()) {
-            htmlItems.push(<li className='nav-item'>
-                <Link className='nav-link' to={key}>{value}</Link>
-            </li>);
-        }
+        const isAuthenticated = localStorage.getItem("Authorization") || false;
         return (
             <nav className="navbar navbar-dark navbar-expand-lg bg-info clearfix" style={{padding: '.5rem'}}>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto align-self-end">
-                        {htmlItems}
+                        {
+                            menuItems.leftItems.map(item => <li className='nav-item'>
+                                <Link className='nav-link' to={item.link}>{item.name}</Link>
+                            </li>)
+                        }
                     </ul>
                     <ul className="navbar-nav align-self-start">
-                        <Link className='nav-link' to={'/login'}>Войти</Link>
-                        <Link className='nav-link' to={'/login'}>Регистрация</Link>
+                        {
+                            !isAuthenticated ?
+                            (<li className='nav-item'>
+                                <Link className='nav-link'
+                                      to={menuItems.rightItems.Login.link}>
+                                    {menuItems.rightItems.Login.name}</Link>
+                            </li>)
+                            : (<li className='nav-item'>
+                                <Link className='nav-link'
+                                      to={menuItems.rightItems.Logout.link}>
+                                    {menuItems.rightItems.Logout.name}</Link>
+                            </li>)
+                        }
                     </ul>
                 </div>
             </nav>

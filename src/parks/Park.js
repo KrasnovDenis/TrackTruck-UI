@@ -4,8 +4,6 @@ import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "../user/PrivateArea";
 import ParkRepo from "../repository/ParkRepo";
 
-
-//страница прям конкретного парка с машинами
 class Park extends Component {
     constructor(props) {
         super(props);

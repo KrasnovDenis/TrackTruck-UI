@@ -20,42 +20,55 @@ import Park from "./parks/Park";
 import Navbar from "./common/Navbar";
 
 function App() {
-    setUpMenu();
 
     return (
         <BrowserRouter>
-            <Navbar items={sessionStorage.getItem('menu-items')}/>
-               <Switch>
-                   <Route path={'/'} exact component={Home}/>
-                   <Route path={'/about'} exact component={About}/>
-                   <Route path={'/login'} exact component={Login}/>
-                   <Route path={'/registration'} exact component={Registration}/>
+            <Navbar/>
+            <Switch>
+                <Route path={'/'} exact component={Home}/>
+                <Route path={'/about'} exact component={About}/>
+                <Route path={'/login'} exact component={Login}/>
+                <Route path={'/registration'} exact component={Registration}/>
 
-                   <Route path={'/admin'} exact component={Admin}/>
-                   <Route path={'/admin/customers'} exact component={Customers}/>
-                   <Route path={'/admin/employees'} exact component={Employees}/>
-                   <Route path={'/admin/messages'} exact component={Messages}/>
+                <Route path={'/admin'} exact component={Admin}/>
+                <Route path={'/admin/customers'} exact component={Customers}/>
+                <Route path={'/admin/employees'} exact component={Employees}/>
+                <Route path={'/admin/messages'} exact component={Messages}/>
 
-                   <Route path={'/customer'} exact component={PrivateArea}/>
-                   <Route path={'/customer/vehicles'} exact component={Vehicles}/>
-                   <Route path={'/customer/vehicles/:id'} exact component={Vehicle}/>
-                   <Route path={'/customer/statistics'} exact component={Statistics}/>
-                   <Route path={'/customer/license'} exact component={License}/>
-                   <Route path={'/customer/feedback'} exact component={Feedback}/>
-                   <Route path={'/customer/parks'} exact component={Parks}/>
-                   <Route path={'/customer/parks/:id'} exact component={Park}/>
-                   <Route component={NotFound} />
-               </Switch>
+                <Route path={'/customer'} exact component={PrivateArea}/>
+                <Route path={'/customer/vehicles'} exact component={Vehicles}/>
+                <Route path={'/customer/vehicles/:id'} exact component={Vehicle}/>
+                <Route path={'/customer/statistics'} exact component={Statistics}/>
+                <Route path={'/customer/license'} exact component={License}/>
+                <Route path={'/customer/feedback'} exact component={Feedback}/>
+                <Route path={'/customer/parks'} exact component={Parks}/>
+                <Route path={'/customer/parks/:id'} exact component={Park}/>
+                <Route component={NotFound}/>
+            </Switch>
         </BrowserRouter>
     );
 }
 
-function setUpMenu() {
-    const items = new Map();
-    items.set('/', 'Главная');
-    items.set('/about', 'О нас');
-
-    sessionStorage.setItem('menu-items', JSON.stringify(Array.from(items.entries())));
-
+export var menuItems = {
+    leftItems:
+        [{
+            link: '/',
+            name: 'Главная'
+        },
+        {
+            link: '/about',
+            name: 'О нас'
+        }],
+    rightItems: {
+        Login: {
+            link: '/login',
+            name: 'Войти'
+        },
+        Logout: {
+            link: '/logout',
+            name: 'Выйти'
+        }
+    }
 }
+
 export default App;
