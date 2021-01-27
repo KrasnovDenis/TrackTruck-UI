@@ -5,6 +5,7 @@ import About from './common/About';
 import PrivateArea from "./user/PrivateArea";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 import Admin from "./admin/Admin";
 import Customers from "./admin/Customers";
 import Employees from "./admin/Employees";
@@ -28,6 +29,7 @@ function App() {
                 <Route path={'/'} exact component={Home}/>
                 <Route path={'/about'} exact component={About}/>
                 <Route path={'/login'} exact component={Login}/>
+                <Route path={'/logout'} exact component={Logout}/>
                 <Route path={'/registration'} exact component={Registration}/>
 
                 <Route path={'/admin'} exact component={Admin}/>
