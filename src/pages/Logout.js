@@ -1,8 +1,8 @@
 import {Component} from "react";
 
 class Logout extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         localStorage.clear();
         window.location.href = "/";
     }
