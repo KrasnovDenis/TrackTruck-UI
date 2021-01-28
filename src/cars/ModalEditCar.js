@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
-import ParkRepo from "../repository/ParkRepo";
+import CarRepo from "../repository/CarRepo";
 
-class ModalAddPark extends Component {
+class ModalEditCar extends Component {
     //todo: props as default value
     state = {
         modal: false,
@@ -26,13 +26,18 @@ class ModalAddPark extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault();
+        const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
         let car = {
-            name: this.state.name,
-            owner: localStorage.getItem("userId")
+            id: carId,
+            model: this.state.model,
+            year: this.state.year,
+            description: this.state.description,
+            park: this.state.park,
+            image: this.state.image
         }
         try {
-            await ParkRepo.createPark(car);
-            alert("Машина добавлена!");
+            await CarRepo.createCar(car);
+            alert("Машина изменена!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");
@@ -43,16 +48,16 @@ class ModalAddPark extends Component {
         return (
             <div>
                 <Button
-                    color="dark"
+                    color="primary"
                     style={{marginBottom: '2rem'}}
                     onClick={this.toggle}>
-                    Добавить машину
+                    Редактировать машину
                 </Button>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}
                        toggle={this.toggle}>
                     <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
-                        <ModalBody  >
+                        <ModalBody>
                             <Form
                                 onSubmit={this.onSubmit}>
                                 <FormGroup>
@@ -63,6 +68,15 @@ class ModalAddPark extends Component {
                                         name="model"
                                         placeholder="Газ-66"
                                         pattern="^[a-zA-Z0-9_ ]{3,50}"
+                                        onChange={this.onChange}
+                                    />
+                                    <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
+
+                                    <Input
+                                        type="number"
+                                        name="year"
+                                        placeholder="1999"
+                                        pattern="^[0-9]{4}"
                                         onChange={this.onChange}
                                     />
                                     <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
@@ -86,7 +100,7 @@ class ModalAddPark extends Component {
                                         isOpen={this.state.modal}
                                         toggle={this.toggle}
                                         block
-                                    >Добавить машину</Button>
+                                    >Редактировать</Button>
                                 </FormGroup>
                             </Form>
                         </ModalBody>
@@ -97,4 +111,4 @@ class ModalAddPark extends Component {
     }
 }
 
-export default ModalAddPark;
+export default ModalEditCar;

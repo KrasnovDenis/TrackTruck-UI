@@ -3,6 +3,9 @@ import {VehicleLabel} from "../cars/VehicleLabel";
 import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "../user/PrivateArea";
 import ParkRepo from "../repository/ParkRepo";
+import {Col, Container, Row} from "reactstrap";
+import ModalAddCar from "../cars/ModalAddCar";
+import ModalRenamePark from "./ModalRenamePark";
 
 class Park extends Component {
     constructor(props) {
@@ -31,13 +34,23 @@ class Park extends Component {
         return (<div className="content-customer">
             <SideBar menuItems={setUpSideBar()}/>
 
-            <h1>Парк : {this.state.name}</h1>
-            <br/>
-            <h4>Машины</h4>
+            <h1>{this.state.name}</h1>
+            <hr/>
+            <Container>
+                <Row>
+                    <Col sm="2">
+                        <ModalAddCar/>
+                    </Col>
+                    <Col sm="2">
+                        <ModalRenamePark/>
+                    </Col>
+                </Row>
+            </Container>
 
             {
                 this.state.cars.map(car => <VehicleLabel car={car}/>)
             }
+
         </div>)
     }
 }

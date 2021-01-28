@@ -7,7 +7,8 @@ import carPic from "../style/images/icons/car_pic.jpeg";
 import lineDiagram from "../style/images/line-diagram.png";
 import circleDiagram from "../style/images/circle-diagram.png";
 import "../style/components/customer/Vehicle.css"
-import ModalAddCar from "./ModalAddCar";
+import ModalEditCar from "./ModalEditCar";
+import ModalDeleteCar from "./ModalDeleteCar";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -54,7 +55,8 @@ class Vehicle extends Component {
                                 </div>
                                 <br/>
                                 <br/>
-                                <ModalAddCar/>
+                                <ModalEditCar/>
+                                <ModalDeleteCar/>
                             </Col>
                         </Row>
                         <br/>

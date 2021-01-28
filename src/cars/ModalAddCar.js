@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
-import ParkRepo from "../repository/ParkRepo";
+import CarRepo from "../repository/CarRepo";
 
 class ModalAddPark extends Component {
 
-    //todo: ensure this functionality
     state = {
         modal: false,
         model: "",
         year: "",
+        description: "",
+        park: "",
         img: []
     }
 
@@ -28,11 +29,14 @@ class ModalAddPark extends Component {
     onSubmit = async (e) => {
         e.preventDefault();
         let car = {
-            name: this.state.name,
-            owner: localStorage.getItem("userId")
+            model: this.state.model,
+            year: this.state.year,
+            description: this.state.description,
+            park: this.state.park,
+            image: this.state.image
         }
         try {
-            await ParkRepo.createPark(car);
+            await CarRepo.createCar(car);
             alert("Машина добавлена!");
             window.location.reload();
         } catch (rejectedValue) {
@@ -44,10 +48,10 @@ class ModalAddPark extends Component {
         return (
             <div>
                 <Button
-                    color="dark"
+                    color="primary"
                     style={{marginBottom: '2rem'}}
                     onClick={this.toggle}>
-                    Добавить машину
+                    Добавить
                 </Button>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}
@@ -63,7 +67,16 @@ class ModalAddPark extends Component {
                                         type="text"
                                         name="model"
                                         placeholder="Газ-66"
-                                        pattern="^[a-zA-Z0-9_ ]{3,50}"
+                                        pattern="(.*){3,50}"
+                                        onChange={this.onChange}
+                                    />
+                                    <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
+
+                                    <Input
+                                        type="number"
+                                        name="year"
+                                        placeholder="1999"
+                                        pattern="^[0-9]{4}"
                                         onChange={this.onChange}
                                     />
                                     <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
@@ -72,7 +85,7 @@ class ModalAddPark extends Component {
                                         type="text"
                                         name="description"
                                         placeholder="Описание (необязательно)"
-                                        pattern="^[a-zA-Z0-9_ ]{3,50}"
+                                        pattern="(.*){3,50}"
                                         onChange={this.onChange}
                                     />
                                     <Label style={{marginTop: '2rem'}} for="image">Картинка</Label>
@@ -81,6 +94,8 @@ class ModalAddPark extends Component {
                                         name="image"
                                         onChange={this.onChange}
                                     />
+
+                                    {/*TODO: input list of parks */}
                                     <br/>
                                     <Button
                                         type="submit"

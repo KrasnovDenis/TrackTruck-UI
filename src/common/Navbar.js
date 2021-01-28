@@ -6,7 +6,6 @@ import {menuItems} from "../App";
 class Navbar extends Component {
 
     render() {
-
         const isAuthenticated = localStorage.getItem("Authorization") || false;
         const button = !isAuthenticated ?
             (<li className='nav-item'>
@@ -29,7 +28,6 @@ class Navbar extends Component {
                     <ul className="navbar-nav mr-auto align-self-end">
 
                         {
-
                             menuItems.leftItems.map(item => <li className='nav-item'>
                                 <Link className='nav-link' to={item.link}>{item.name}</Link>
                             </li>)

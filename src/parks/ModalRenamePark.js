@@ -7,6 +7,21 @@ class ModalRenamePark extends Component {
     state = {
         modal: false,
         name: "",
+        cars:[],
+        parkId: ""
+    }
+
+    async componentDidMount() {
+        const parkId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+
+        await ParkRepo
+            .getParkById(parkId)
+            .then((resp) => (
+                this.setState({
+                    cars: resp.data.cars,
+                    name: resp.data.name,
+                    parkId: parkId})
+            ))
     }
 
     toggle = () => {
@@ -25,9 +40,10 @@ class ModalRenamePark extends Component {
     onSubmit = async (e) => {
         e.preventDefault();
         let park = {
-            id: this.props.parkId,
+            id: window.location.href.substring(window.location.href.lastIndexOf('/') + 1),
             name: this.state.name,
-            owner: localStorage.getItem("userId")
+            owner: localStorage.getItem("userId"),
+            cars: this.state.cars
         }
         try {
             await ParkRepo.updatePark(park);
@@ -45,7 +61,7 @@ class ModalRenamePark extends Component {
                     color="dark"
                     style={{marginBottom: '2rem'}}
                     onClick={this.toggle}>
-                    Переименовать парк
+                    Редактировать
                 </Button>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}
@@ -61,7 +77,6 @@ class ModalRenamePark extends Component {
                                         type="text"
                                         name="name"
                                         placeholder="Парк Иванова"
-                                        pattern="^[a-zA-Z0-9_ ]{3,50}"
                                         onChange={this.onChange}
                                     />
                                     <br/>

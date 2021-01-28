@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Modal, ModalBody, ModalHeader} from "reactstrap";
-import ParkRepo from "../repository/ParkRepo";
+import CarRepo from "../repository/CarRepo";
 
-class ModalAddPark extends Component {
+class ModalDeleteCar extends Component {
 
     //todo: id from props
     state = {
@@ -25,13 +25,10 @@ class ModalAddPark extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault();
-        let car = {
-            name: this.state.name,
-            owner: localStorage.getItem("userId")
-        }
+        const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
         try {
-            await ParkRepo.createPark(car);
-            alert("Машина добавлена!");
+            await CarRepo.deleteCarById(carId);
+            alert("Машина удалена!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");
@@ -42,15 +39,16 @@ class ModalAddPark extends Component {
         return (
             <div>
                 <Button
-                    color="dark"
+                    color="danger"
                     style={{marginBottom: '2rem'}}
                     onClick={this.toggle}>
-                    Добавить машину
+                    Удалить машину
                 </Button>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}
                        toggle={this.toggle}>
                     <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
+                        Вы уверены?
                         <ModalBody  >
                             <Form
                                 onSubmit={this.onSubmit}>
@@ -73,4 +71,4 @@ class ModalAddPark extends Component {
     }
 }
 
-export default ModalAddPark;
+export default ModalDeleteCar;
