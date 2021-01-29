@@ -29,12 +29,12 @@ class RoadMap extends Component{
                     <Container>
                         <Row>
                             <Col>
-                                <h2>Карта</h2>
+                                <h2>Аналитика</h2>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                Аналитика движения по маршрутам согласно GPS\GLONASS
+                                Карта движения по маршрутам согласно GPS\GLONASS
                             </Col>
                         </Row>
                         <hr/>
@@ -42,7 +42,7 @@ class RoadMap extends Component{
                         <Row>
                             <Col/>
                             <Col>
-                                <img src={roadmap} width="300px" alt="torque image"/>
+                                <img src={roadmap} width="300px" alt="roadmap image"/>
                             </Col>
                             <Col/>
                         </Row>
