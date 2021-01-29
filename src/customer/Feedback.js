@@ -5,6 +5,7 @@ import {Col, Container, Row} from "reactstrap";
 import '../style/components/customer/Feedback.css';
 import supportAvatar from '../style/images/icons/support-avatar.png';
 import companyAvatar from '../style/images/icons/company-logo.png';
+import Footer from "../common/Footer";
 
 class Feedback extends Component {
     render() {
@@ -45,6 +46,7 @@ class Feedback extends Component {
                        </Row>
                    </Container>
                 </div>
+                <Footer/>
             </div>
         )
     }

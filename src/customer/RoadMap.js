@@ -42,7 +42,7 @@ class RoadMap extends Component{
                         <Row>
                             <Col/>
                             <Col>
-                                <img src={roadmap} width="300px" alt="roadmap image"/>
+                                <img src={roadmap} width="300px" alt="roadmap"/>
                             </Col>
                             <Col/>
                         </Row>

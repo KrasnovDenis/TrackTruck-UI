@@ -3,6 +3,7 @@ import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "./PrivateArea";
 import {Col, Container, Row} from "reactstrap";
 import torqueSettings from '../style/images/torque.png'
+import Footer from "../common/Footer";
 
 class HelpPage extends Component {
 
@@ -49,12 +50,13 @@ class HelpPage extends Component {
                         <Row>
                             <Col/>
                             <Col>
-                                <img src={torqueSettings} width="300px" alt="torque image"/>
+                                <img src={torqueSettings} width="300px" alt="torque"/>
                             </Col>
                             <Col/>
                         </Row>
                     </Container>
                 </div>
+                <Footer/>
             </div>
         );
     }

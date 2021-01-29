@@ -3,6 +3,7 @@ import {SideBar} from "../common/SideBar";
 import '../style/pages/Customer.css';
 import {Col, Container, Row} from "reactstrap";
 import compLogo from "../style/images/icons/company-logo.png";
+import Footer from "../common/Footer";
 
 class PrivateArea extends Component{
     render () {
@@ -44,6 +45,7 @@ class PrivateArea extends Component{
                         </Row>
                     </Container>
                 </div>
+                <Footer/>
             </div>
         )
     }
