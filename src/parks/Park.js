@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {VehicleLabel} from "../cars/VehicleLabel";
 import {SideBar} from "../common/SideBar";
-import {setUpSideBar} from "../user/PrivateArea";
+import {setUpSideBar} from "../customer/PrivateArea";
 import ParkRepo from "../repository/ParkRepo";
 import {Col, Container, Row} from "reactstrap";
 import ModalAddCar from "../cars/ModalAddCar";

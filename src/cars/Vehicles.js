@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {SideBar} from "../common/SideBar";
-import {setUpSideBar} from "../user/PrivateArea";
+import {setUpSideBar} from "../customer/PrivateArea";
 import {VehicleLabel} from "./VehicleLabel";
 import {Col, Container, Row} from "reactstrap";
 

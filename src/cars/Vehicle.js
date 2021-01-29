@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {SideBar} from "../common/SideBar";
-import {setUpSideBar} from "../user/PrivateArea";
+import {setUpSideBar} from "../customer/PrivateArea";
 import CarRepo from "../repository/CarRepo";
 import {Col, Container, Row} from "reactstrap";
 import carPic from "../style/images/icons/car_pic.jpeg";

@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './common/Home';
 import About from './common/About';
-import PrivateArea from "./user/PrivateArea";
+import PrivateArea from "./customer/PrivateArea";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
@@ -11,14 +11,16 @@ import Customers from "./admin/Customers";
 import Employees from "./admin/Employees";
 import Messages from "./admin/Messages";
 import Vehicles from "./cars/Vehicles";
-import Statistics from "./user/Statistics";
-import License from "./user/License";
-import Feedback from "./user/Feedback";
+import Statistics from "./customer/Statistics";
+import License from "./customer/License";
+import Feedback from "./customer/Feedback";
 import {NotFound} from "./common/NotFound";
 import Vehicle from "./cars/Vehicle";
 import Parks from "./parks/Parks";
 import Park from "./parks/Park";
 import Navbar from "./common/Navbar";
+import HelpPage from "./customer/HelpPage";
+import RoadMap from "./customer/RoadMap";
 
 function App() {
 
@@ -45,6 +47,8 @@ function App() {
                 <Route path={'/customer/feedback'} exact component={Feedback}/>
                 <Route path={'/customer/parks'} exact component={Parks}/>
                 <Route path={'/customer/parks/:id'} exact component={Park}/>
+                <Route path={'/help'} exact component={HelpPage}/>
+                <Route path={'/customer/roadmaps'} exact component={RoadMap}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>
