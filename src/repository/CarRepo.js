@@ -8,14 +8,7 @@ class CarRepo {
     }
 
     updateCar(car){
-        return axios.put(CARS_REST, car
-    //         {
-    //         id : car.id,
-    //         model: car.model,
-    //         year: car.year,
-    //         description: car.description
-    // }
-    );
+        return axios.put(`${CARS_REST}/${car.id}`, car);
     }
 
     deleteCarById(id){
@@ -23,13 +16,7 @@ class CarRepo {
     }
 
     createCar(car){
-        return axios.post(CARS_REST, car
-        //     {
-        //     model: car.model,
-        //     year: car.year,
-        //     description: car.description
-        // }
-        );
+        return axios.post(CARS_REST, car);
     }
 }
 

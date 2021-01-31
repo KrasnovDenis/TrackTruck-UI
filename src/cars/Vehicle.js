@@ -18,7 +18,8 @@ class Vehicle extends Component {
             model: "",
             description: "",
             year: "",
-            park: ""
+            park: "",
+            image:[]
         }
     }
 
@@ -55,7 +56,7 @@ class Vehicle extends Component {
                                 </div>
                                 <br/>
                                 <br/>
-                                <ModalEditCar/>
+                                <ModalEditCar car={this.state}/>
                                 <ModalDeleteCar/>
                             </Col>
                         </Row>

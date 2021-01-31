@@ -1,14 +1,47 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
 import CarRepo from "../repository/CarRepo";
+import ParkRepo from "../repository/ParkRepo";
+
+const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
 class ModalEditCar extends Component {
     //todo: props as default value
-    state = {
-        modal: false,
-        model: "",
-        year: "",
-        img: []
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            modal: false,
+            model: "",
+            year: "",
+            description: "",
+            park: [],
+            image: [],
+            allUsersParks: [],
+            userId: localStorage.getItem("userId")
+        }
+    }
+
+    async componentDidMount() {
+        await ParkRepo
+            .getAllParksByOwner(this.state.userId)
+            .then((resp) => (
+                this.setState({
+                    allUsersParks: resp.data
+                })
+            ))
+
+        await CarRepo
+            .getCarById(carId)
+            .then((resp) => (
+                this.setState({
+                    model: resp.data.model,
+                    description: resp.data.description,
+                    park: resp.data.park,
+                    year: resp.data.year,
+                    image: resp.data.image
+                })
+            ))
     }
 
     toggle = () => {
@@ -22,11 +55,12 @@ class ModalEditCar extends Component {
         const {name, value} = e.target;
         this.setState({[name]: value});
 
+        console.log(e.target);
+
     }
 
     onSubmit = async (e) => {
         e.preventDefault();
-        const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
         let car = {
             id: carId,
             model: this.state.model,
@@ -36,7 +70,7 @@ class ModalEditCar extends Component {
             image: this.state.image
         }
         try {
-            await CarRepo.createCar(car);
+            await CarRepo.updateCar(car);
             alert("Машина изменена!");
             window.location.reload();
         } catch (rejectedValue) {
@@ -45,6 +79,12 @@ class ModalEditCar extends Component {
     }
 
     render() {
+        const parkList = this.state.allUsersParks.map(park => {
+            return park.name === this.state.park
+                ? (<option value={park.id} selected="selected"> {park.name}</option>)
+                : (<option value={park.id}> {park.name}</option>);
+        });
+
         return (
             <div>
                 <Button
@@ -57,37 +97,45 @@ class ModalEditCar extends Component {
                        isOpen={this.state.modal}
                        toggle={this.toggle}>
                     <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
+                        Редактирование
                         <ModalBody>
                             <Form
                                 onSubmit={this.onSubmit}>
                                 <FormGroup>
                                     <Label style={{marginTop: '2rem'}} for="model">Модель</Label>
-
                                     <Input
                                         type="text"
                                         name="model"
-                                        placeholder="Газ-66"
-                                        pattern="^[a-zA-Z0-9_ ]{3,50}"
+                                        defaultValue={this.state.model}
                                         onChange={this.onChange}
                                     />
+
                                     <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
-
                                     <Input
-                                        type="number"
+                                        type="date"
                                         name="year"
-                                        placeholder="1999"
-                                        pattern="^[0-9]{4}"
+                                        defaultValue={this.state.year}
                                         onChange={this.onChange}
                                     />
-                                    <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
 
+                                    <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
                                     <Input
                                         type="text"
                                         name="description"
-                                        placeholder="Описание (необязательно)"
-                                        pattern="^[a-zA-Z0-9_ ]{3,50}"
+                                        defaultValue={this.state.description}
                                         onChange={this.onChange}
                                     />
+
+                                    <Label style={{marginTop: '2rem'}} for="description">Выберите парк</Label>
+                                    <Input
+                                        type="select"
+                                        name="park"
+                                        onChange={this.onChange}>
+                                        {
+                                            parkList
+                                        }
+                                    </Input>
+
                                     <Label style={{marginTop: '2rem'}} for="image">Картинка</Label>
                                     <Input
                                         type="file"
