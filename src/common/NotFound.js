@@ -1,7 +1,6 @@
 import React from 'react';
 import '../style/components/NotFound.css';
 import {Col, Container, Row} from "reactstrap";
-import Footer from "./Footer";
 
 export function NotFound() {
     return (
@@ -13,7 +12,6 @@ export function NotFound() {
                     </Col>
                 </Row>
             </Container>
-            <Footer/>
         </div>
     );
 

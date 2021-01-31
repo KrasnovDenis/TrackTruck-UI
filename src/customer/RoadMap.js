@@ -3,6 +3,7 @@ import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "./PrivateArea";
 import {Col, Container, Row} from "reactstrap";
 import roadmap from "../style/images/roadmap.png";
+import Footer from "../common/Footer";
 
 class RoadMap extends Component{
 
@@ -48,6 +49,7 @@ class RoadMap extends Component{
                         </Row>
                     </Container>
                 </div>
+                <Footer/>
             </div>
         );
     }

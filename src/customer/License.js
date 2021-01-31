@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "./PrivateArea";
+import Footer from "../common/Footer";
 
 class License extends Component{
 
@@ -19,6 +20,7 @@ class License extends Component{
                     <h4>Имя организации (владельца)</h4>
                     <h4>Отслеживаемые параметры</h4>
                 </div>
+                <Footer/>
             </div>
         );
     }

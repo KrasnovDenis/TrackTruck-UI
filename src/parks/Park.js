@@ -6,6 +6,7 @@ import ParkRepo from "../repository/ParkRepo";
 import {Col, Container, Row} from "reactstrap";
 import ModalAddCar from "../cars/ModalAddCar";
 import ModalRenamePark from "./ModalRenamePark";
+import Footer from "../common/Footer";
 
 class Park extends Component {
     constructor(props) {
@@ -24,34 +25,38 @@ class Park extends Component {
             .then((resp) => (
                 this.setState({
                     cars: resp.data.cars,
-                    name: resp.data.name})
+                    name: resp.data.name
+                })
             ))
     }
 
     render() {
         const park = this.state.park;
         console.log(park)
-        return (<div className="content-customer">
-            <SideBar menuItems={setUpSideBar()}/>
+        return (
+            <div>
+                <div className="content-customer">
+                    <SideBar menuItems={setUpSideBar()}/>
 
-            <h1>{this.state.name}</h1>
-            <hr/>
-            <Container>
-                <Row>
-                    <Col sm="2">
-                        <ModalAddCar/>
-                    </Col>
-                    <Col sm="2">
-                        <ModalRenamePark/>
-                    </Col>
-                </Row>
-            </Container>
+                    <h1>{this.state.name}</h1>
+                    <hr/>
+                    <Container>
+                        <Row>
+                            <Col sm="2">
+                                <ModalAddCar/>
+                            </Col>
+                            <Col sm="2">
+                                <ModalRenamePark/>
+                            </Col>
+                        </Row>
+                    </Container>
 
-            {
-                this.state.cars.map(car => <VehicleLabel car={car}/>)
-            }
-
-        </div>)
+                    {
+                        this.state.cars.map(car => <VehicleLabel car={car}/>)
+                    }
+                </div>
+                <Footer/>
+            </div>)
     }
 }
 

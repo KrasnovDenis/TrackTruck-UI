@@ -9,6 +9,7 @@ import circleDiagram from "../style/images/circle-diagram.png";
 import "../style/components/customer/Vehicle.css"
 import ModalEditCar from "./ModalEditCar";
 import ModalDeleteCar from "./ModalDeleteCar";
+import Footer from "../common/Footer";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -101,6 +102,7 @@ class Vehicle extends Component {
 
                     </Container>
                 </div>
+                <Footer/>
             </div>
         )
     }

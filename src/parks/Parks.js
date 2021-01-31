@@ -8,6 +8,7 @@ import {Col, Container, ListGroup, Row} from "reactstrap";
 import ModalAddPark from "./ModalAddPark";
 import ModalDeletePark from "./ModalDeletePark";
 import ModalRenamePark from "./ModalRenamePark";
+import Footer from "../common/Footer";
 
 class Parks extends Component {
     constructor(props) {
@@ -30,32 +31,36 @@ class Parks extends Component {
 
     render() {
         return (
-            <div className="content-customer">
-                <SideBar menuItems={setUpSideBar()}/>
-                <br/>
-                <Container>
-                    <Row>
-                        <Col>
-                            <h3>Ваши парки, {localStorage.getItem("firstName")}</h3>
-                        </Col>
-
-                    </Row>
+            <div>
+                <div className="content-customer">
+                    <SideBar menuItems={setUpSideBar()}/>
                     <br/>
-                    <Row>
-                        <Col className="sm-1">
-                            <ListGroup>
-                                {
-                                    this.state.parks.map(park => <ParkLabel park={park}/>)
-                                }
-                            </ListGroup>
-                        </Col>
-                        <Col className="sm-1">
-                            <ModalAddPark/>
-                            <ModalDeletePark/>
-                            <ModalRenamePark/>
-                        </Col>
-                    </Row>
-                </Container>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <h3>Ваши парки, {localStorage.getItem("firstName")}</h3>
+                            </Col>
+
+                        </Row>
+                        <br/>
+                        <Row>
+                            <Col className="sm-1">
+                                <ListGroup>
+                                    {
+                                        this.state.parks.map(park => <ParkLabel park={park}/>)
+                                    }
+                                </ListGroup>
+                            </Col>
+                            <Col className="sm-1">
+                                <ModalAddPark/>
+                                <ModalDeletePark/>
+                                <ModalRenamePark/>
+                            </Col>
+                        </Row>
+                    </Container>
+
+                </div>
+                <Footer/>
             </div>
         )
     }

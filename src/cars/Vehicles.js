@@ -3,6 +3,7 @@ import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "../customer/PrivateArea";
 import {VehicleLabel} from "./VehicleLabel";
 import {Col, Container, Row} from "reactstrap";
+import Footer from "../common/Footer";
 
 class Vehicles extends Component {
     render() {
@@ -32,6 +33,7 @@ class Vehicles extends Component {
                     </Row>
 
                 </Container>
+                <Footer/>
             </div>
         )
     }
