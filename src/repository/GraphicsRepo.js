@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:8080/series";
+const URL = "http://80.78.240.218/api/series";
 
 class GraphicsRepo {
     async getSeriesForVehicle(torqueId, parameter, dateFrom, dateTo) {

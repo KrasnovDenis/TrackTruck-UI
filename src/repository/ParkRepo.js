@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PARKS_REST = 'http://localhost:8080/parks';
+const PARKS_REST = 'http://80.78.240.218/api/parks';
 
 class ParkRepo {
 

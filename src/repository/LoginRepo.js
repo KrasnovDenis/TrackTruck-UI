@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const LOGIN_REST = 'http://localhost:8080/login';
-const REGISTRATION_REST = 'http://localhost:8080/registration';
+const LOGIN_REST = 'http://80.78.240.218/api/login';
+const REGISTRATION_REST = 'http://80.78.240.218/api/registration';
 
 class LoginRepo {
 

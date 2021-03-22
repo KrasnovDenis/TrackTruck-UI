@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const CARS_REST = 'http://localhost:8080/cars';
+const CARS_REST = 'http://80.78.240.218/api/cars';
 class CarRepo {
 
     getCarById(id){
