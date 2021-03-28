@@ -1,7 +1,8 @@
 import axios from "axios";
+import {HOST_URL} from "../application-config.json";
 
-const LOGIN_REST = 'http://80.78.240.218/api/login';
-const REGISTRATION_REST = 'http://80.78.240.218/api/registration';
+const LOGIN_REST = `${HOST_URL}/api/login`;
+const REGISTRATION_REST = `${HOST_URL}/api/registration`;
 
 class LoginRepo {
 
@@ -16,7 +17,7 @@ class LoginRepo {
         return axios.post(
             REGISTRATION_REST,
             user, {
-                'Content-Type':'application/json'
+                'Content-Type': 'application/json'
             }
         )
     }

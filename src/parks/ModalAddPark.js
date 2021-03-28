@@ -60,8 +60,8 @@ class ModalAddPark extends Component {
                                         type="text"
                                         name="name"
                                         placeholder="Парк Иванова"
-                                        pattern="^[a-zA-Z0-9_ ]{3,50}"
                                         onChange={this.onChange}
+                                        required
                                     />
                                     <br/>
                                     <Button

@@ -87,8 +87,8 @@ class ModalAddPark extends Component {
                                         type="text"
                                         name="model"
                                         placeholder="Газ-66"
-                                        pattern="(.*){3,50}"
                                         onChange={this.onChange}
+                                        required
                                     />
                                     <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
 
@@ -96,6 +96,7 @@ class ModalAddPark extends Component {
                                         type="date"
                                         name="year"
                                         onChange={this.onChange}
+                                        required
                                     />
                                     <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
 
@@ -103,7 +104,6 @@ class ModalAddPark extends Component {
                                         type="text"
                                         name="description"
                                         placeholder="Описание (необязательно)"
-                                        pattern="(.*){0,50}"
                                         onChange={this.onChange}
                                     />
                                     <Label style={{marginTop: '2rem'}} for="image">Картинка</Label>

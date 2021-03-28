@@ -4,12 +4,13 @@ import {setUpSideBar} from "../customer/PrivateArea";
 import CarRepo from "../repository/CarRepo";
 import {Col, Container, Row} from "reactstrap";
 import carPic from "../style/images/icons/car_pic.jpeg";
-import lineDiagram from "../style/images/line-diagram.png";
-import circleDiagram from "../style/images/circle-diagram.png";
 import "../style/components/customer/Vehicle.css"
 import ModalEditCar from "./ModalEditCar";
 import ModalDeleteCar from "./ModalDeleteCar";
 import Footer from "../common/Footer";
+import GraphicsRepo from "../repository/GraphicsRepo";
+import LineChart from "../diagrams/LineChart";
+import PieChart from "../diagrams/PieChart";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -20,26 +21,44 @@ class Vehicle extends Component {
             description: "",
             year: "",
             park: "",
-            image:[]
+            torqueId: "",
+            image: [],
+            fuel: []
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const url = window.location.pathname;
         const carId = url.substr(url.lastIndexOf('/') + 1);
-        CarRepo.getCarById(carId).then((response) => {
-            this.setState({
-                model: response.data.model,
-                description: response.data.description,
-                year: response.data.year,
-                park: response.data.park
-            })
-        });
+        try {
 
+            await CarRepo.getCarById(carId)
+                .then((response) => {
+                    this.setState({
+                        model: response.data.model,
+                        description: response.data.description,
+                        year: response.data.year,
+                        park: response.data.park,
+                        torqueId: response.data.torqueId
+                    })
+                })
+
+            await GraphicsRepo
+                .getSeriesForVehicle(this.state.torqueId,
+                    "Vehicle distance",
+                    new Date() - 86400000 * 2,
+                    new Date().getTime())
+                .then(r => this.setState({fuel: r}))
+
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     render() {
+        let fuelData = this.state.fuel
         return (
+
             <div>
                 <SideBar menuItems={setUpSideBar()}/>
                 <div className="content-customer">
@@ -72,23 +91,19 @@ class Vehicle extends Component {
                         </Row>
                         <Row>
                             <Col sm="6">
-                                <strong>
-                                    Перед вами диаграмма расхода топлива для автомобиля за текущую неделю
-                                    Перед вами диаграмма расхода топлива для автомобиля за текущую неделю
-                                    Перед вами диаграмма расхода топлива для автомобиля за текущую неделю
-                                    Перед вами диаграмма расхода топлива для автомобиля за текущую неделю
-                                </strong>
+                                {fuelData.timeValues !== undefined ? <LineChart data={fuelData}/> : <div>Loading</div>}
                             </Col>
-                            <Col sm="6">
-                                <img alt="линейная диаграмма" width="350px" src={lineDiagram}/>
+                            <Col>
+                                <strong>
+                                    Перед вами зависимость потребления топлива данным автомобилем
+                                </strong>
                             </Col>
                         </Row>
                         <br/>
                         <br/>
                         <Row>
                             <Col sm="6">
-                                <img className="car-img-top" alt="круговая диаграмма" width="350px"
-                                     src={circleDiagram}/>
+                                {fuelData.timeValues !== undefined ? <PieChart data={fuelData}/> : <div>Loading</div>}
                             </Col>
                             <Col sm="6">
                                 <strong>

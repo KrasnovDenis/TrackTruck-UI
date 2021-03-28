@@ -1,6 +1,7 @@
 import axios from "axios";
+import {HOST_URL} from "../application-config.json";
 
-const URL = "http://80.78.240.218/api/series";
+const URL = `${HOST_URL}/api/series`;
 
 class GraphicsRepo {
     async getSeriesForVehicle(torqueId, parameter, dateFrom, dateTo) {

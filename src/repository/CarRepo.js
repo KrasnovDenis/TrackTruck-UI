@@ -1,22 +1,24 @@
 import axios from 'axios'
+import {HOST_URL} from "../application-config.json";
 
-const CARS_REST = 'http://80.78.240.218/api/cars';
+const URL = `${HOST_URL}/api/cars`;
+
 class CarRepo {
 
-    getCarById(id){
-        return axios.get(`${CARS_REST}/${id}`);
+    getCarById(id) {
+        return axios.get(`${URL}/${id}`);
     }
 
-    updateCar(car){
-        return axios.put(`${CARS_REST}/${car.id}`, car);
+    updateCar(car) {
+        return axios.put(`${URL}/${car.id}`, car);
     }
 
-    deleteCarById(id){
-        return axios.delete(`${CARS_REST}/${id}`);
+    deleteCarById(id) {
+        return axios.delete(`${URL}/${id}`);
     }
 
-    createCar(car){
-        return axios.post(CARS_REST, car);
+    createCar(car) {
+        return axios.post(URL, car);
     }
 }
 

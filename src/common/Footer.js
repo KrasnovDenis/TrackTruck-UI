@@ -10,7 +10,7 @@ class Footer extends Component {
                        style={{position: "relative", backgroundColor: "#111", color: '#fff', zIndex: "10"}}>
                 <Row>
                     <Col style={{textAlign: "center"}}>
-                        <h3>Monitoring MQ</h3>
+                        <h3>Monitoring</h3>
                         <br/>
                         <br/>
                         <br/>

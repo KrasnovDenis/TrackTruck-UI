@@ -1,35 +1,37 @@
 import axios from "axios";
+import {HOST_URL} from "../application-config.json";
 
-const PARKS_REST = 'http://80.78.240.218/api/parks';
+const URL = `${HOST_URL}/api/parks`;
 
 class ParkRepo {
 
-    getParkById(id){
-        return axios.get(`${PARKS_REST}/${id}`);
+    getParkById(id) {
+        return axios.get(`${URL}/${id}`);
     }
 
-    getAllParksByOwner(userId){
-        return axios.get(`${PARKS_REST}/ids/${userId}`);
+    getAllParksByOwner(userId) {
+        return axios.get(`${URL}/ids/${userId}`);
     }
 
-    createPark(park){
-        return axios.post(PARKS_REST, park);
+    createPark(park) {
+        console.log(URL);
+        return axios.post(URL, park);
     }
 
-    updatePark(park){
-        return axios.put(PARKS_REST, park);
+    updatePark(park) {
+        return axios.put(URL, park);
     }
 
-    deletePark(id){
-        return axios.delete(`${PARKS_REST}/${id}`);
+    deletePark(id) {
+        return axios.delete(`${URL}/${id}`);
     }
 
-    addCarToPark(carId, parkId){
-        return axios.patch(`${PARKS_REST}/${carId}&${parkId}`)
+    addCarToPark(carId, parkId) {
+        return axios.patch(`${URL}/${carId}&${parkId}`)
     }
 
-    deleteCarFromPark(carId, parkId){
-        return axios.delete(`${PARKS_REST}/${carId}&${parkId}`);
+    deleteCarFromPark(carId, parkId) {
+        return axios.delete(`${URL}/${carId}&${parkId}`);
     }
 
 }
