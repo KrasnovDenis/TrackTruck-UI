@@ -53,6 +53,8 @@ class ModalAddPark extends Component {
             year: this.state.year,
             description: this.state.description,
             park: this.state.park.id,
+            stateNumber: this.state.stateNumber,
+            torqueId: this.state.torqueId,
             image: this.state.image
         }
         try {
@@ -82,7 +84,6 @@ class ModalAddPark extends Component {
                                 onSubmit={this.onSubmit}>
                                 <FormGroup>
                                     <Label style={{marginTop: '2rem'}} for="model">Модель</Label>
-
                                     <Input
                                         type="text"
                                         name="model"
@@ -90,22 +91,41 @@ class ModalAddPark extends Component {
                                         onChange={this.onChange}
                                         required
                                     />
-                                    <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
 
+                                    <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
                                     <Input
                                         type="date"
                                         name="year"
                                         onChange={this.onChange}
                                         required
                                     />
-                                    <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
 
+                                    <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
                                     <Input
                                         type="text"
                                         name="description"
                                         placeholder="Описание (необязательно)"
                                         onChange={this.onChange}
                                     />
+
+                                    <Label style={{marginTop: '2rem'}} for="stateNumber">Номерной знак</Label>
+                                    <Input
+                                        type="text"
+                                        name="stateNumber"
+                                        defaultValue={this.state.stateNumber}
+                                        pattern="[а-я][0-9]{3}[а-я]{2}[0-9]{2-3}"
+                                        onChange={this.onChange}
+                                    />
+
+                                    <Label style={{marginTop: '2rem'}} for="torqueId">Torque ID </Label>
+                                    <Input
+                                        type="text"
+                                        name="torqueId"
+                                        defaultValue={this.state.stateNumber}
+                                        pattern="[a-z0-9]{32}"
+                                        onChange={this.onChange}
+                                    />
+
                                     <Label style={{marginTop: '2rem'}} for="image">Картинка</Label>
                                     <Input
                                         type="file"

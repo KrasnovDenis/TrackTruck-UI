@@ -39,6 +39,8 @@ class ModalEditCar extends Component {
                     description: resp.data.description,
                     park: resp.data.park,
                     year: resp.data.year,
+                    torqueId: resp.data.torqueId,
+                    stateNumber: resp.data.stateNumber,
                     image: resp.data.image
                 })
             ))
@@ -67,6 +69,8 @@ class ModalEditCar extends Component {
             year: this.state.year,
             description: this.state.description,
             park: this.state.park,
+            torqueId: this.state.torqueId,
+            stateNumber: this.state.stateNumber,
             image: this.state.image
         }
         try {
@@ -118,11 +122,30 @@ class ModalEditCar extends Component {
                                         onChange={this.onChange}
                                     />
 
+                                    <Label style={{marginTop: '2rem'}} for="torqueId">Torque ID (см в приложении Torque)</Label>
+                                    <Input
+                                        type="text"
+                                        name="torqueId"
+                                        defaultValue={this.state.torqueId}
+                                        pattern="[a-z0-9]{32}"
+                                        onChange={this.onChange}
+                                    />
+
                                     <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
                                     <Input
                                         type="text"
                                         name="description"
                                         defaultValue={this.state.description}
+                                        pattern="[а-я][0-9]{3}[а-я]{2}[0-9]{2-3}"
+                                        onChange={this.onChange}
+                                    />
+
+                                    <Label style={{marginTop: '2rem'}} for="stateNumber">Номерной знак</Label>
+                                    <Input
+                                        type="text"
+                                        name="stateNumber"
+                                        defaultValue={this.state.stateNumber}
+                                        pattern="[а-я][0-9]{3}[а-я]{2}[0-9]{2-3}"
                                         onChange={this.onChange}
                                     />
 
