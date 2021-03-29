@@ -112,7 +112,7 @@ class ModalAddPark extends Component {
                                     <Input
                                         type="text"
                                         name="stateNumber"
-                                        defaultValue={this.state.stateNumber}
+                                        placeholder="в777ор77"
                                         pattern="[а-я][0-9]{3}[а-я]{2}[0-9]{2-3}"
                                         onChange={this.onChange}
                                     />
@@ -121,7 +121,7 @@ class ModalAddPark extends Component {
                                     <Input
                                         type="text"
                                         name="torqueId"
-                                        defaultValue={this.state.stateNumber}
+                                        placeholder="находится в приложении"
                                         pattern="[a-z0-9]{32}"
                                         onChange={this.onChange}
                                     />
