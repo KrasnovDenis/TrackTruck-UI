@@ -9,6 +9,7 @@ import ModalAddPark from "./ModalAddPark";
 import ModalDeletePark from "./ModalDeletePark";
 import ModalRenamePark from "./ModalRenamePark";
 import Footer from "../common/Footer";
+import AllParksDiagram from "../diagrams/AllParksDiagram";
 
 class Parks extends Component {
     constructor(props) {
@@ -58,7 +59,7 @@ class Parks extends Component {
                             </Col>
                         </Row>
                     </Container>
-
+                    <AllParksDiagram parks = {this.state.parks}/>
                 </div>
                 <Footer/>
             </div>

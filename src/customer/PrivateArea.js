@@ -4,6 +4,7 @@ import '../style/pages/Customer.css';
 import {Col, Container, Row} from "reactstrap";
 import compLogo from "../style/images/icons/company-logo.png";
 import Footer from "../common/Footer";
+import CustomerDiagram from "../diagrams/CustomerDiagram";
 
 class PrivateArea extends Component{
     render () {
@@ -43,6 +44,10 @@ class PrivateArea extends Component{
                                 <p> за это время через нас прошло свыше 100500 операций</p>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <CustomerDiagram/>
+                        </Row>
                     </Container>
                 </div>
                 <Footer/>
@@ -56,7 +61,6 @@ export default PrivateArea
 export function setUpSideBar(){
     const items = new Map();
     items.set('/customer/parks', 'Автопарки');
-    items.set('/customer/statistics', 'Аналитика');
     items.set('/customer/roadmaps', 'Маршруты');
     items.set('/customer/license', 'Лицензия');
     items.set('/customer/feedback', 'Связь с администрацией');

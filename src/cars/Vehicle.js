@@ -11,6 +11,7 @@ import Footer from "../common/Footer";
 import GraphicsRepo from "../repository/GraphicsRepo";
 import LineChart from "../diagrams/LineChart";
 import PieChart from "../diagrams/PieChart";
+import CarDiagram from "../diagrams/CarDiagram";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -117,6 +118,7 @@ class Vehicle extends Component {
                         </Row>
 
                     </Container>
+                    <CarDiagram/>
                 </div>
                 <Footer/>
             </div>

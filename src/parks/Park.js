@@ -7,6 +7,7 @@ import {Col, Container, Row} from "reactstrap";
 import ModalAddCar from "../cars/ModalAddCar";
 import ModalRenamePark from "./ModalRenamePark";
 import Footer from "../common/Footer";
+import ParkDiagram from "../diagrams/ParkDiagram";
 
 class Park extends Component {
     constructor(props) {
@@ -50,15 +51,15 @@ class Park extends Component {
                             </Col>
                         </Row>
                     </Container>
-
                     {
                         this.state.cars.map(car => <VehicleLabel car={car}/>)
                     }
+                    <ParkDiagram/>
                 </div>
                 <Footer/>
             </div>)
     }
 }
 
-export default Park
+export default Park;
 
