@@ -1,7 +1,7 @@
 import axios from "axios";
 import {HOST_URL} from "../application-config.json";
 
-const URL = `${HOST_URL}/api/series`;
+const URL = `${HOST_URL}/api/`;
 
 class GraphicsRepo {
     async getSeriesForVehicle(torqueId, parameter, dateFrom, dateTo) {
@@ -15,7 +15,7 @@ class GraphicsRepo {
         let timeValues = [];
         let metricValues = [];
         try {
-            let response = await axios.post(URL, requestBody)
+            let response = await axios.post(URL + "series", requestBody)
 
             if (response.status === 200) {
                 for (let i = 0; i < response.data.length; i++) {
@@ -36,6 +36,29 @@ class GraphicsRepo {
             dateTo: dateTo
         }
     }
+
+
+    //can be used for get data
+    //for one or many parks (depends on parkIds params)
+    async getSeriesForParks(parkIds, parameter, dateFrom, dateTo) {
+        const requestBody = {
+            providedIds: parkIds,
+            parameter: parameter,
+            dateFrom: dateFrom,
+            dateTo: dateTo
+        }
+
+        try {
+            let response = await axios.post(URL + "charts/parks", requestBody)
+
+            if (response.status === 200) {
+                return response.data;
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
 
 }
 

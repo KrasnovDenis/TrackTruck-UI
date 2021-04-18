@@ -13,13 +13,19 @@ class LineChart extends Component {
     }
 
     render() {
-
-        console.log(this.props);
         const height = this.state.height | 500;
         const width = this.state.width | 500;
-        let metricValues = this.props.data.metricValues;
-        let time = this.props.data.timeValues.map(i=>{
-            return new Date(i)
+
+        console.log(this.props.data);
+        let parkName = this.props.data.park.parkName;
+        let parameterName = this.props.data.parameter;
+
+        let time = this.props.data.park.metricList.map(i=>{
+            return new Date(i.time)
+        });
+
+        let metrics = this.props.data.park.metricList.map(i=>{
+            return i.value
         });
 
         let values = [[
@@ -27,18 +33,27 @@ class LineChart extends Component {
             {id: 'i1', type: 'number', label: 'values'}
         ]]
 
-        for(let i = 0; i < metricValues.length; i++){
-            values.push( [time[i], metricValues[i]]);
+        // let response = {
+        //     "parkName": "Снегоборочный парк",
+        //     "metricList": [
+        //         {
+        //             "time": 12312313,
+        //             "value": 132123
+        //         }
+        //     ]
+        // }
+
+        for(let i = 0; i < metrics.length; i++){
+            values.push( [time[i], metrics[i]]);
         }
 
         return (<Chart
             width={width}
             height={height}
             options={{
-                title:
-                    'Количество затраченного топлива',
+                title: parkName,
                 hAxis: {title: 'Дата'},
-                vAxis: {title: this.state.name},
+                vAxis: {title: parameterName},
                 bubble: {textStyle: {fontSize: 26}},
                 intervals: {style: 'sticks'},
                 legend: 'none',
@@ -46,7 +61,6 @@ class LineChart extends Component {
             chartType="LineChart"
             loader={<div>Loading Chart</div>}
             data={values}
-
         />)
 
     }

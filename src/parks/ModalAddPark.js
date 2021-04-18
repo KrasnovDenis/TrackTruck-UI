@@ -50,7 +50,7 @@ class ModalAddPark extends Component {
                     isOpen={this.state.modal}
                     toggle={this.toggle}>
                     <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
-                        <ModalBody  >
+                        <ModalBody >
                             <Form
                                 onSubmit={this.onSubmit}>
                                 <FormGroup>
