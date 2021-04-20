@@ -17,14 +17,14 @@ class LineChart extends Component {
         const width = this.state.width | 500;
 
         console.log(this.props.data);
-        let parkName = this.props.data.park.parkName;
+        let entityName = this.props.data.entity.entityName;
         let parameterName = this.props.data.parameter;
 
-        let time = this.props.data.park.metricList.map(i=>{
+        let time = this.props.data.entity.metricList.map(i=>{
             return new Date(i.time)
         });
 
-        let metrics = this.props.data.park.metricList.map(i=>{
+        let metrics = this.props.data.entity.metricList.map(i=>{
             return i.value
         });
 
@@ -32,16 +32,6 @@ class LineChart extends Component {
             {id: 'i0', type: 'date', label: 'values'},
             {id: 'i1', type: 'number', label: 'values'}
         ]]
-
-        // let response = {
-        //     "parkName": "Снегоборочный парк",
-        //     "metricList": [
-        //         {
-        //             "time": 12312313,
-        //             "value": 132123
-        //         }
-        //     ]
-        // }
 
         for(let i = 0; i < metrics.length; i++){
             values.push( [time[i], metrics[i]]);
@@ -51,7 +41,7 @@ class LineChart extends Component {
             width={width}
             height={height}
             options={{
-                title: parkName,
+                title: entityName,
                 hAxis: {title: 'Дата'},
                 vAxis: {title: parameterName},
                 bubble: {textStyle: {fontSize: 26}},

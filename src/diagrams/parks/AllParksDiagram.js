@@ -3,8 +3,9 @@ import {Button, Col, Container, Form, FormGroup, Input, Label, Row} from "reacts
 import Select from 'react-select';
 import DateFnsUtils from '@date-io/date-fns';
 import {DateTimePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
-import LineChart from "./LineChart";
-import GraphicsRepo from "../repository/GraphicsRepo";
+import LineChart from "../charts/LineChart";
+import GraphicsRepo from "../../repository/GraphicsRepo";
+import {parameterItems} from "../../application-config.json";
 
 
 class AllParksDiagram extends Component {
@@ -37,8 +38,13 @@ class AllParksDiagram extends Component {
         this.setState({dateTo: new Date(e).getTime()});
     }
 
+    onSubmit = async () => {
+        if(this.state.parksSelected.length === 0 ||
+            this.state.parameter.length === 0){
+            alert("Проверьте параметры графика");
+            return;
+        }
 
-    onSubmitChangeHandler = async () => {
         try {
             let state = this.state;
             await GraphicsRepo.getSeriesForParks(
@@ -57,8 +63,8 @@ class AllParksDiagram extends Component {
         let diagramData = this.state.diagramData;
         let diagramDataStub = {
             "parameter": "",
-            "park": {
-                "parkName": "Выберите парк и параметры",
+            "entity": {
+                "entityName": "Выберите парк и параметры",
                 "metricList": [
                     {
                         "time": new Date(),
@@ -71,8 +77,7 @@ class AllParksDiagram extends Component {
         return (
             <div>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Form
-                        onSubmit={this.onSubmit}>
+                    <Form>
                         <FormGroup>
                             <Container>
                                 <Row>
@@ -88,9 +93,7 @@ class AllParksDiagram extends Component {
                                         </FormGroup>
                                     </Col>
                                     <Col>
-
                                         <FormGroup>
-
                                             <Select
                                                 onChange={this.handleChange}
                                                 isMulti
@@ -107,7 +110,7 @@ class AllParksDiagram extends Component {
                                     <Col>
                                         <Select
                                             onChange={this.onChangeParameter}
-                                            options={this.parameterItems}
+                                            options={parameterItems}
                                         />
                                     </Col>
                                 </Row>
@@ -130,20 +133,22 @@ class AllParksDiagram extends Component {
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                            </Container>
-                            <Button onClick={this.onSubmitChangeHandler} onSubmit={false}> Применить</Button>
-
-                            <Container>
-
+                                <Row>
+                                    <Col md="2">
+                                        <Button onClick={this.onSubmit}
+                                                onSubmit={false}> Применить</Button>
+                                    </Col>
+                                </Row>
                                 <Row>
                                     <Col sm="6">
                                         {diagramData.responseEntities !== undefined ?
-                                            diagramData.responseEntities.map(park => <LineChart data={
-                                                {
-                                                    parameter: diagramData.parameter,
-                                                    park: park
-                                                }
-                                            }/>) :
+                                            diagramData.responseEntities.map(park =>
+                                                <LineChart ref={this.myRef} data={
+                                                    {
+                                                        parameter: diagramData.parameter,
+                                                        entity: park
+                                                    }
+                                                }/>) :
                                             <LineChart data={diagramDataStub}/>}
                                     </Col>
                                 </Row>
@@ -154,12 +159,6 @@ class AllParksDiagram extends Component {
             </div>
         );
     }
-
-    parameterItems = [
-        {value: "Vehicle distance", label: "Vehicle distance"},
-        {value: "location", label: "Location"},
-        {value: "errors", label: "Errors"}
-    ]
 }
 
 export default AllParksDiagram;

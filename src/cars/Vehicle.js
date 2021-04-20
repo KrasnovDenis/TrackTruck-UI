@@ -8,10 +8,7 @@ import "../style/components/customer/Vehicle.css"
 import ModalEditCar from "./ModalEditCar";
 import ModalDeleteCar from "./ModalDeleteCar";
 import Footer from "../common/Footer";
-import GraphicsRepo from "../repository/GraphicsRepo";
-import LineChart from "../diagrams/LineChart";
-import PieChart from "../diagrams/PieChart";
-import CarDiagram from "../diagrams/CarDiagram";
+import CarDiagram from "../diagrams/cars/CarDiagram";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -44,23 +41,13 @@ class Vehicle extends Component {
                         stateNumber: response.data.stateNumber
                     })
                 })
-
-            await GraphicsRepo
-                .getSeriesForVehicle(this.state.torqueId,
-                    "Vehicle distance",
-                    new Date() - 86400000 * 2,
-                    new Date().getTime())
-                .then(r => this.setState({fuel: r}))
-
         } catch (e) {
             console.log(e)
         }
     }
 
     render() {
-        let fuelData = this.state.fuel
         return (
-
             <div>
                 <SideBar menuItems={setUpSideBar()}/>
                 <div className="content-customer">
@@ -91,34 +78,8 @@ class Vehicle extends Component {
                                 <hr/>
                             </Col>
                         </Row>
-                        <Row>
-                            <Col sm="6">
-                                {fuelData.timeValues !== undefined ? <LineChart data={fuelData}/> : <div>Loading</div>}
-                            </Col>
-                            <Col>
-                                <strong>
-                                    Перед вами зависимость потребления топлива данным автомобилем
-                                </strong>
-                            </Col>
-                        </Row>
-                        <br/>
-                        <br/>
-                        <Row>
-                            <Col sm="6">
-                                {fuelData.timeValues !== undefined ? <PieChart data={fuelData}/> : <div>Loading</div>}
-                            </Col>
-                            <Col sm="6">
-                                <strong>
-                                    Диаграмма распределения поездок по дням недели
-                                    Диаграмма распределения поездок по дням недели
-                                    Диаграмма распределения поездок по дням недели
-                                    Диаграмма распределения поездок по дням недели
-                                </strong>
-                            </Col>
-                        </Row>
-
+                        <CarDiagram car={this.state}/>
                     </Container>
-                    <CarDiagram/>
                 </div>
                 <Footer/>
             </div>

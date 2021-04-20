@@ -9,7 +9,7 @@ import ModalAddPark from "./ModalAddPark";
 import ModalDeletePark from "./ModalDeletePark";
 import ModalRenamePark from "./ModalRenamePark";
 import Footer from "../common/Footer";
-import AllParksDiagram from "../diagrams/AllParksDiagram";
+import AllParksDiagram from "../diagrams/parks/AllParksDiagram";
 
 class Parks extends Component {
     constructor(props) {

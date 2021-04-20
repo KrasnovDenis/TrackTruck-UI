@@ -4,6 +4,7 @@ import {HOST_URL} from "../application-config.json";
 const URL = `${HOST_URL}/api/`;
 
 class GraphicsRepo {
+
     async getSeriesForVehicle(torqueId, parameter, dateFrom, dateTo) {
         const requestBody = {
             torqueId: torqueId,
@@ -50,6 +51,27 @@ class GraphicsRepo {
 
         try {
             let response = await axios.post(URL + "charts/parks", requestBody)
+
+            if (response.status === 200) {
+                return response.data;
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    //can be used for get data
+    //for one or many car (depends on params)
+    async getSeriesForCars(carIDs, parameter, dateFrom, dateTo) {
+        const requestBody = {
+            providedIds: carIDs,
+            parameter: parameter,
+            dateFrom: dateFrom,
+            dateTo: dateTo
+        }
+
+        try {
+            let response = await axios.post(URL + "charts/cars", requestBody)
 
             if (response.status === 200) {
                 return response.data;
