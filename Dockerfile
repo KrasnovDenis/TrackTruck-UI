@@ -22,7 +22,7 @@ ARG REACT_APP_API_BASE_URL
 ENV REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL}
 
 # Build the application
-RUN yarn run build
+RUN yarn run build --network-timeout 100000
 
 #### Stage 2: Serve the React application from Nginx
 FROM nginx:1.17.0-alpine
