@@ -8,17 +8,17 @@ class Navbar extends Component {
     render() {
         const isAuthenticated = localStorage.getItem("Authorization") || false;
         const button = !isAuthenticated ?
-            (<li className='nav-item'>
+            (<li key="nav-item" className='nav-item'>
                 <Link className='nav-link'
                       to={menuItems.rightItems.Login.link}>
                     {menuItems.rightItems.Login.name}</Link>
             </li>)
-            : (<li className='nav-item'>
+            : (<li key="nav-item" className='nav-item'>
                 <Link className='nav-link'
                       to={menuItems.rightItems.Logout.link}>
                     {menuItems.rightItems.Logout.name}</Link>
             </li>)
-        const privateArea = isAuthenticated ? (<li className='nav-item'>
+        const privateArea = isAuthenticated ? (<li key="privateArea" className='nav-item'>
             <Link className='nav-link' to={"/customer"}>{"Личный кабинет"}</Link>
         </li>) : (<div/>)
 
@@ -28,7 +28,7 @@ class Navbar extends Component {
                     <ul className="navbar-nav mr-auto align-self-end">
 
                         {
-                            menuItems.leftItems.map(item => <li className='nav-item'>
+                            menuItems.leftItems.map(item => <li key={item.name} className='nav-item'>
                                 <Link className='nav-link' to={item.link}>{item.name}</Link>
                             </li>)
                         }

@@ -8,7 +8,7 @@ export function SideBar(props) {
     var htmlSideBarItems = [];
 
     for (const [key, value] of sideBarItems.entries()) {
-        htmlSideBarItems.push(<li className='nav-item'>
+        htmlSideBarItems.push(<li key={key} className='nav-item'>
             <Link className='nav-link' to={key}>{value}</Link>
         </li>);
     }

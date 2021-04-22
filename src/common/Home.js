@@ -24,9 +24,9 @@ class Home extends Component {
                             <br/>
                             <h4>Мониторинг автопарка без ограничений!</h4>
                             <ul>
-                                <li>Высокая надежность</li>
-                                <li>Низкие цены</li>
-                                <li>Понятные графики</li>
+                                <li key="point1">Высокая надежность</li>
+                                <li key="point2">Низкие цены</li>
+                                <li key="point3">Понятные графики</li>
                             </ul>
                         </Col>
                         <Col>
