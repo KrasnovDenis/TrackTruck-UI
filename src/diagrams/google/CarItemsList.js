@@ -9,6 +9,7 @@ import {DateTimePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import {Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
 import MapChart from "./maps/MapChart";
+import MapRepo from "../../repository/MapRepo";
 
 const useStyles = theme => ({
     root: {
@@ -37,8 +38,9 @@ class CarItemsList extends Component {
             parks: [],
             carMarker: [],
             carTrace: [],
-            dateFromInput: false,
-            dateToInput: false
+            dateInput: false,
+            dateFrom: new Date() - 1000000,
+            dateTo: new Date()
         }
     }
 
@@ -50,10 +52,22 @@ class CarItemsList extends Component {
                 this.setState({parks: response.data})))
     }
 
-    onSelectCar(e) {
+    async onSelectCar(e) {
         //    todo: здесь сделать 2 вещи
         //    1. Сходить в influx и попытаться взять положение машины от current_data (если нет, то метку не ставить вообще)
         //    2. Сходить в influx и взять НЕ ВСЕ точки-координаты GPS
+
+        await MapRepo.getMarkerForCar(e).then(i => {
+            this.setState({carMarker: i})
+        });
+
+        if (this.state.dateInput) {
+            await MapRepo.getTrace(e, this.state.dateFrom, this.state.dateTo)
+                .then(i => {
+                    this.setState({carTrace: i})
+                });
+        }
+
     }
 
     handleDateFromChange = (e) => {
@@ -68,13 +82,11 @@ class CarItemsList extends Component {
         console.log(e.target.checked)
         if (e.target.checked) {
             this.setState({
-                dateFromInput: true,
-                dateToInput: true,
+                dateInput: true,
             })
         } else {
             this.setState({
-                dateFromInput: false,
-                dateToInput: false,
+                dateInput: false,
             })
         }
     }
@@ -102,7 +114,7 @@ class CarItemsList extends Component {
                                         <FormGroup>
                                             Дата начала
                                             <DateTimePicker
-                                                disabled={this.state.dateFromInput}
+                                                disabled={this.state.dateInput}
                                                 value={this.state.dateFrom}
                                                 onChange={this.handleDateFromChange}/>
                                         </FormGroup>
@@ -111,7 +123,7 @@ class CarItemsList extends Component {
                                         <FormGroup>
                                             Дата конца
                                             <DateTimePicker
-                                                disabled={this.state.dateToInput}
+                                                disabled={this.state.dateInput}
                                                 value={this.state.dateTo}
                                                 onChange={this.handleDateToChange}/>
                                         </FormGroup>
@@ -127,7 +139,7 @@ class CarItemsList extends Component {
                                                               onClick={() => {
                                                                   this.onSelectCar(car.id)
                                                               }}>
-                                                        <ListItemText primary={car.model}/>
+                                                        <ListItemText primary={car.model} secondary={car.stateNumber}/>
                                                     </ListItem>
                                                 ))}
                                             </ul>

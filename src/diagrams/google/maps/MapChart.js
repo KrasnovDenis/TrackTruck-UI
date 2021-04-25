@@ -27,7 +27,7 @@ export class MapChart extends Component {
             return <div>Loading...</div>;
         }
 
-        const triangleCoords = [
+        const triangleCoords = this.props.trace || [
             {lat: 25.774, lng: -80.190},
             {lat: 18.466, lng: -66.118},
             {lat: 32.321, lng: -64.757},
