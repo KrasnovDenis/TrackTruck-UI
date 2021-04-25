@@ -38,7 +38,7 @@ class CarItemsList extends Component {
             parks: [],
             carMarker: [],
             carTrace: [],
-            dateInput: false,
+            dateInputBlocked: false,
             dateFrom: new Date() - 1000000,
             dateTo: new Date()
         }
@@ -61,7 +61,7 @@ class CarItemsList extends Component {
             this.setState({carMarker: i})
         });
 
-        if (this.state.dateInput) {
+        if (!this.state.dateInputBlocked) {
             await MapRepo.getTrace(e, this.state.dateFrom, this.state.dateTo)
                 .then(i => {
                     this.setState({carTrace: i})
@@ -82,11 +82,11 @@ class CarItemsList extends Component {
         console.log(e.target.checked)
         if (e.target.checked) {
             this.setState({
-                dateInput: true,
+                dateInputBlocked: true,
             })
         } else {
             this.setState({
-                dateInput: false,
+                dateInputBlocked: false,
             })
         }
     }
@@ -114,7 +114,7 @@ class CarItemsList extends Component {
                                         <FormGroup>
                                             Дата начала
                                             <DateTimePicker
-                                                disabled={this.state.dateInput}
+                                                disabled={this.state.dateInputBlocked}
                                                 value={this.state.dateFrom}
                                                 onChange={this.handleDateFromChange}/>
                                         </FormGroup>
@@ -123,7 +123,7 @@ class CarItemsList extends Component {
                                         <FormGroup>
                                             Дата конца
                                             <DateTimePicker
-                                                disabled={this.state.dateInput}
+                                                disabled={this.state.dateInputBlocked}
                                                 value={this.state.dateTo}
                                                 onChange={this.handleDateToChange}/>
                                         </FormGroup>
