@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Button, Form, FormGroup, Modal, ModalBody, ModalHeader} from "reactstrap";
 import ParkRepo from "../repository/ParkRepo";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 class ModalDeletePark extends Component {
 
@@ -32,21 +33,16 @@ class ModalDeletePark extends Component {
     render() {
         return (
             <div>
-                <Button
-                    color="danger"
-                    style={{marginBottom: '2rem'}}
-                    onClick={this.toggle}>
-                    Удалить парк
-                </Button>
+                <DeleteIcon onClick={this.toggle}/>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}
                        toggle={this.toggle}>
                     <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
-                        <ModalBody  >
+                        <ModalBody>
                             <Form
                                 onSubmit={this.onSubmit}>
                                 <FormGroup>
-                                   <h3>Вы уверены?</h3>
+                                    <h3>Вы уверены?</h3>
                                     <br/>
                                     <Button
                                         type="submit"

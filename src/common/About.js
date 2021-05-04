@@ -6,16 +6,22 @@ class About extends Component {
 
     render() {
         return (
-            <Container fluid="true">
-                <div className="jumbotron">
-                    <div className="container">
-                        <h1 className="display-4">Monitoring MQ</h1>
-                        <p className="lead">Приложение для мониторинга состояния автомобиля <strong>v.0.1</strong></p>
+            <div>
+                <Container fluid="true" style={{fontSize: '13px'}}>
+                    <div className="jumbotron">
+                        <div className="container">
+                            <h1 className="display-4">TrackTruck</h1>
+                            <p className="lead">Приложение для мониторинга состояния автомобиля <strong>v.0.1</strong>
+                            </p>
+                        </div>
                     </div>
-                </div>
+
+                </Container>
                 <Footer/>
-            </Container>
-        );
+            </div>
+
+        )
+            ;
     }
 }
 

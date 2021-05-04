@@ -6,24 +6,23 @@ class Footer extends Component {
 
     render() {
         return (
-            <Container fluid="true"
-                       style={{position: "relative", backgroundColor: "#111", color: '#fff', zIndex: "10"}}>
+            <Container className='jumbotron' fluid='true'
+                       style={{
+                           backgroundColor: "#111",
+                           color: '#fff',
+                           zIndex: "10"}}>
                 <Row>
                     <Col style={{textAlign: "center"}}>
-                        <h3>Monitoring</h3>
+                        <h3>TrackTruck</h3>
                         <br/>
                         <br/>
                         <br/>
                     </Col>
-                    <br/>
-                    <br/>
                     <br/>
                 </Row>
                 <Row>
                     <Col sm="1"/>
-                    <Col sm="2">
-                        <h4>Monitoring 0.1</h4>
-                    </Col>
+                    <Col sm="2"/>
                     <Col sm="1">
                         <div>
                             <Link to="/about">
@@ -44,7 +43,7 @@ class Footer extends Component {
                     <Col sm="2">Наш офис расположен: г.Саратов ул. Трынина д.123</Col>
                     <Col sm="2">Для коммерческих предложений
                         <br/>
-                        <a href="mailto:Elo.1972@yandex.ru?subject=Monitoring MQ"> Пишите на почту </a>
+                        <a href="mailto:Elo.1972@yandex.ru?subject=TrackTruck"> Пишите на почту </a>
                     </Col>
                     <Col sm="2">
                         Документация
@@ -64,7 +63,6 @@ class Footer extends Component {
                 <br/>
                 <br/>
             </Container>
-
         );
     }
 }

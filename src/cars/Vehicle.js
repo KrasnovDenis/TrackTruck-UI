@@ -3,7 +3,7 @@ import {SideBar} from "../common/SideBar";
 import {setUpSideBar} from "../customer/PrivateArea";
 import CarRepo from "../repository/CarRepo";
 import {Col, Container, Row} from "reactstrap";
-import carPic from "../style/images/icons/car_pic.jpeg";
+import carPic from "../style/images/icons/car_default_icon.png";
 import "../style/components/customer/Vehicle.css"
 import ModalEditCar from "./ModalEditCar";
 import ModalDeleteCar from "./ModalDeleteCar";

@@ -4,12 +4,12 @@ import {setUpSideBar} from "../customer/PrivateArea";
 import ParkLabel from "./ParkLabel";
 import "../style/components/customer/Vehicle.css";
 import ParkRepo from "../repository/ParkRepo";
-import {Col, Container, ListGroup, Row} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 import ModalAddPark from "./ModalAddPark";
-import ModalDeletePark from "./ModalDeletePark";
 import ModalRenamePark from "./ModalRenamePark";
 import Footer from "../common/Footer";
 import AllParksDiagram from "../diagrams/parks/AllParksDiagram";
+import List from "@material-ui/core/List";
 
 class Parks extends Component {
     constructor(props) {
@@ -45,16 +45,16 @@ class Parks extends Component {
                         </Row>
                         <br/>
                         <Row>
+
                             <Col className="sm-1">
-                                <ListGroup>
+                                <List dense={true}>
                                     {
                                         this.state.parks.map(park => <ParkLabel park={park}/>)
                                     }
-                                </ListGroup>
+                                </List>
                             </Col>
                             <Col className="sm-1">
                                 <ModalAddPark/>
-                                <ModalDeletePark/>
                                 <ModalRenamePark/>
                             </Col>
                         </Row>

@@ -1,6 +1,17 @@
 .car {
     display: inline-block;
+    font-family: Tough, sans-serif !important;
 }
+
+.car a{
+    font-family: Tough, sans-serif !important;
+}
+
 .car-body{
     width: 16rem;
 }
+
+.car-number{
+    font-size: 14px;
+}
+

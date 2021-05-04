@@ -4,11 +4,51 @@ import '../style/pages/Customer.css';
 import {Col, Container, Row} from "reactstrap";
 import compLogo from "../style/images/icons/company-logo.png";
 import Footer from "../common/Footer";
-import CustomerDiagram from "../diagrams/CustomerDiagram";
+import UserRepo from "../repository/UserRepo";
 
-class PrivateArea extends Component{
-    render () {
+class PrivateArea extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            companyName: [],
+            licenseDate: [],
+            daysLeft: [],
+            carsCount: [],
+            parksCount: []
+
+        }
+    }
+
+    async componentDidMount() {
+        const userId = localStorage.getItem("userId");
+        try {
+            await UserRepo.getUserInfo(userId)
+                .then((response) => {
+                    this.setState({
+                        companyName: response.data.companyName,
+                        licenseDate: response.data.licenseDate,
+                        daysLeft: response.data.daysLeft,
+                        carsCount: response.data.carsCount,
+                        parksCount: response.data.parksCount
+                    })
+                })
+        } catch (e) {
+            console.log("Данного пользователя не существует")
+        }
+    }
+
+    render() {
         const sideBarItems = setUpSideBar();
+        let licenseDueDate = "";
+        if(this.state.licenseDate > 0){
+            const dateTime = new Date(this.state.licenseDate)
+            let options = {year: 'numeric', month: 'long', day: 'numeric' };
+            licenseDueDate = dateTime.toLocaleDateString("ru-RU", options)
+        }
+        const daysLeft = this.state.daysLeft;
+
+
         return (
             <div className="feed">
                 <SideBar menuItems={sideBarItems}/>
@@ -22,8 +62,8 @@ class PrivateArea extends Component{
                             </Col>
                             <Col sm="7">
                                 <div>
-                                    <h4> 5 парков</h4>
-                                    <h4> 26 машин</h4>
+                                    <h4> Парков : {this.state.parksCount}</h4>
+                                    <h4>Машин : {this.state.carsCount}</h4>
                                     Обслуживаются в данный момент
                                 </div>
                                 <br/>
@@ -32,7 +72,7 @@ class PrivateArea extends Component{
                         </Row>
                         <Row>
                             <Col>
-                                <h1>Маруся inc</h1>
+                                <h1>{this.state.companyName}</h1>
                             </Col>
                         </Row>
                         <br/>
@@ -40,14 +80,11 @@ class PrivateArea extends Component{
                         <br/>
                         <Row>
                             <Col>
-                                <h4> дней с нами</h4>
-                                <p> за это время через нас прошло свыше 100500 операций</p>
+                                <h4> Вы с нами уже {daysLeft} дней</h4>
+                                <h5> Ваша лицензия действительна до {licenseDueDate}</h5>
                             </Col>
                         </Row>
 
-                        <Row>
-                            <CustomerDiagram/>
-                        </Row>
                     </Container>
                 </div>
                 <Footer/>
@@ -58,7 +95,7 @@ class PrivateArea extends Component{
 
 export default PrivateArea
 
-export function setUpSideBar(){
+export function setUpSideBar() {
     const items = new Map();
     items.set('/customer/parks', 'Автопарки');
     items.set('/customer/roadmaps', 'Маршруты');

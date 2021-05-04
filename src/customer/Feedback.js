@@ -4,7 +4,7 @@ import {setUpSideBar} from "./PrivateArea";
 import {Col, Container, Row} from "reactstrap";
 import '../style/components/customer/Feedback.css';
 import supportAvatar from '../style/images/icons/support-avatar.png';
-import companyAvatar from '../style/images/icons/company-logo.png';
+import companyAvatar from '../style/images/icons/company-logo.jpg';
 import Footer from "../common/Footer";
 
 class Feedback extends Component {

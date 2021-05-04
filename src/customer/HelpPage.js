@@ -18,7 +18,7 @@ class HelpPage extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <h2>Monitoring</h2>
+                                <h2>TrackTruck</h2>
                             </Col>
                         </Row>
                         <Row>

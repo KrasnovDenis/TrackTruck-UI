@@ -1,18 +1,33 @@
 import React, {Component} from 'react';
-import {ListGroupItem} from "reactstrap";
 import {Link} from "react-router-dom";
+import {Avatar, IconButton, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from "@material-ui/core";
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import ModalDeletePark from "./ModalDeletePark";
 
-
-//это один парк (всмысле маленк)
 class ParkLabel extends Component {
-
     render() {
         return (
-            <Link to={`parks/${this.props.park.id}`}>
-                <ListGroupItem color="info" action>
-                    <h5 className="car-model">{this.props.park.name}</h5>
-                </ListGroupItem>
-            </Link>
+            <div>
+
+                    <ListItem style={{ fontFamily: "sans-serif", fontSize : "14px" ,backgroundColor: "#fff" }}>
+                        <ListItemAvatar>
+                            <Avatar>
+                                <LocalShippingIcon/>
+                            </Avatar>
+                        </ListItemAvatar>
+                        <Link to={`parks/${this.props.park.id}`}>
+                        <ListItemText
+                            primary={this.props.park.name}
+                        />
+                </Link>
+                        <ListItemSecondaryAction>
+                            <IconButton aria-label="delete">
+                                <ModalDeletePark parkId={this.props.park.id}/>
+                            </IconButton>
+                        </ListItemSecondaryAction>
+                    </ListItem>
+
+            </div>
         );
 
     }
