@@ -20,6 +20,7 @@ import Park from "./parks/Park";
 import Navbar from "./common/Navbar";
 import HelpPage from "./customer/HelpPage";
 import RoadMap from "./customer/RoadMap";
+import ChangePassword from "./pages/ChangePassword";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
                 <Route path={'/customer/parks/:id'} exact component={Park}/>
                 <Route path={'/help'} exact component={HelpPage}/>
                 <Route path={'/customer/roadmaps'} exact component={RoadMap}/>
+                <Route path={'/restorePassword'} exact component={ChangePassword}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

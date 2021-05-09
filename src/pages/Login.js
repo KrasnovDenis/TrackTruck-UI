@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import '../style/pages/login.css';
-import {Link} from "react-router-dom";
 import LoginRepo from "../repository/LoginRepo";
 import Registration from "./Registration";
 import {Button} from "reactstrap";
+import ForgotPassword from "../common/ForgotPassword";
 
 class Login extends Component {
 
@@ -77,9 +77,7 @@ class Login extends Component {
                         <div className="w-full text-center p-t-55">
 
                             <br/>
-                            <Link to={'#'} className="txt2 bo1 m-l-5">
-                                Забыли пароль?
-                            </Link>
+                            <ForgotPassword/>
                         </div>
 
                     </div>
