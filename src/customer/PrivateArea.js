@@ -99,7 +99,6 @@ export function setUpSideBar() {
     const items = new Map();
     items.set('/customer/parks', 'Автопарки');
     items.set('/customer/roadmaps', 'Маршруты');
-    items.set('/customer/license', 'Лицензия');
     items.set('/customer/feedback', 'Связь с администрацией');
     items.set('/help', 'Помощь');
     return items;

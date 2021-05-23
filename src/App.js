@@ -11,7 +11,6 @@ import Customers from "./admin/Customers";
 import Employees from "./admin/Employees";
 import Messages from "./admin/Messages";
 import Vehicles from "./cars/Vehicles";
-import License from "./customer/License";
 import Feedback from "./customer/Feedback";
 import {NotFound} from "./common/NotFound";
 import Vehicle from "./cars/Vehicle";
@@ -42,7 +41,6 @@ function App() {
                 <Route path={'/customer'} exact component={PrivateArea}/>
                 <Route path={'/customer/vehicles'} exact component={Vehicles}/>
                 <Route path={'/customer/vehicles/:id'} exact component={Vehicle}/>
-                <Route path={'/customer/license'} exact component={License}/>
                 <Route path={'/customer/feedback'} exact component={Feedback}/>
                 <Route path={'/customer/parks'} exact component={Parks}/>
                 <Route path={'/customer/parks/:id'} exact component={Park}/>
