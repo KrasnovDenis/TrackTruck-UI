@@ -39,8 +39,8 @@ class CarItemsList extends Component {
             carMarker: [],
             carTrace: [],
             dateInputBlocked: false,
-            dateFrom: new Date() - 1000000,
-            dateTo: new Date()
+            dateFrom: new Date() - 1000 * 60 * 60 * 24,
+            dateTo: new Date()-1
         }
     }
 

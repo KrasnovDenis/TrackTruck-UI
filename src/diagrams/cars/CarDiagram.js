@@ -91,6 +91,12 @@ class CarDiagram extends Component {
                             <Container>
                                 <Row>
                                     <Col>
+                                        <h3 style={{textAlign: "center"}}>Метрики и данные</h3>
+                                    </Col>
+                                </Row>
+                                <br/>
+                                <Row>
+                                    <Col>
                                         <FormGroup check>
                                             <Label check>
                                                 <Input onChange={this.onChangeParameter}

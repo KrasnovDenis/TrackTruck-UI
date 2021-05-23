@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
 import CarRepo from "../repository/CarRepo";
 import ParkRepo from "../repository/ParkRepo";
+import {Button} from "@material-ui/core";
 
 const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
@@ -93,9 +94,10 @@ class ModalEditCar extends Component {
             <div>
                 <Button
                     color="primary"
+                    variant="outlined"
                     style={{marginBottom: '2rem'}}
                     onClick={this.toggle}>
-                    Редактировать машину
+                    Редактировать
                 </Button>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}
@@ -122,7 +124,8 @@ class ModalEditCar extends Component {
                                         onChange={this.onChange}
                                     />
 
-                                    <Label style={{marginTop: '2rem'}} for="torqueId">Torque ID (см в приложении Torque)</Label>
+                                    <Label style={{marginTop: '2rem'}} for="torqueId">Torque ID (см в приложении
+                                        Torque)</Label>
                                     <Input
                                         type="text"
                                         name="torqueId"
@@ -168,6 +171,8 @@ class ModalEditCar extends Component {
                                     <br/>
                                     <Button
                                         type="submit"
+                                        color="primary"
+                                        variant="outlined"
                                         isOpen={this.state.modal}
                                         toggle={this.toggle}
                                         block

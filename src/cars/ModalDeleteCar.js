@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {Form, FormGroup, Modal, ModalBody, ModalHeader} from "reactstrap";
 import CarRepo from "../repository/CarRepo";
+import {Button} from "@material-ui/core";
 
 class ModalDeleteCar extends Component {
 
@@ -39,7 +40,8 @@ class ModalDeleteCar extends Component {
         return (
             <div>
                 <Button
-                    color="danger"
+                    color="secondary"
+                    variant="outlined"
                     style={{marginBottom: '2rem'}}
                     onClick={this.toggle}>
                     Удалить машину
@@ -49,7 +51,7 @@ class ModalDeleteCar extends Component {
                        toggle={this.toggle}>
                     <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
                         Вы уверены?
-                        <ModalBody  >
+                        <ModalBody>
                             <Form
                                 onSubmit={this.onSubmit}>
                                 <FormGroup>
@@ -57,6 +59,8 @@ class ModalDeleteCar extends Component {
                                     <br/>
                                     <Button
                                         type="submit"
+                                        color="secondary"
+                                        variant="outlined"
                                         isOpen={this.state.modal}
                                         toggle={this.toggle}
                                         block

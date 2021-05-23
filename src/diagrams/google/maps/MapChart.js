@@ -27,11 +27,14 @@ export class MapChart extends Component {
             return <div>Loading...</div>;
         }
 
-        const triangleCoords = this.props.trace || [
-            {lat: 25.774, lng: -80.190},
-            {lat: 18.466, lng: -66.118},
-            {lat: 32.321, lng: -64.757},
-            {lat: 25.774, lng: -80.190}
+        const triangleCoords = [
+            {"lat": 51.50513, "lng": 45.95215},
+            {"lat": 51.50515, "lng": 45.95325},
+            {"lat": 51.50504, "lng": 45.954},
+            {"lat": 51.50468, "lng": 45.9554},
+            {"lat": 51.50365, "lng": 45.95652},
+            {"lat": 51.50245, "lng": 45.95739},
+            {"lat": 51.50339, "lng": 45.96022}
         ];
 
         return (
@@ -71,9 +74,9 @@ export class MapChart extends Component {
 
                     <Polyline
                         path={triangleCoords}
-                        strokeColor="#0000FF"
+                        strokeColor="#FF0000"
                         strokeOpacity={0.8}
-                        strokeWeight={2} />
+                        strokeWeight={2}/>
                 </Map>
             </div>
         );
