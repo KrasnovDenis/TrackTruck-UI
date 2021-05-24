@@ -81,6 +81,24 @@ class GraphicsRepo {
         }
     }
 
+    async getErrors(carIDs, dateFrom, dateTo) {
+        const requestBody = {
+            providedIds: carIDs,
+            parameter: "Errors",
+            dateFrom: dateFrom,
+            dateTo: dateTo
+        }
+
+        try {
+            let response = await axios.post(URL + "charts/errors", requestBody)
+
+            if (response.status === 200) {
+                return response.data;
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
 }
 

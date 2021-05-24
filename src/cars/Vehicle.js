@@ -47,9 +47,7 @@ class Vehicle extends Component {
     }
 
     render() {
-        let description = (!this.state.description) ?
-            (<h4/>)
-            : (<h5> Описание : {this.state.description}</h5>)
+        let description = (this.state.description) ? (<h5> Описание : {this.state.description}</h5>) : null;
         return (
             <div>
                 <SideBar menuItems={setUpSideBar()}/>
@@ -77,7 +75,6 @@ class Vehicle extends Component {
                                 <ModalDeleteCar/>
                             </Col>
                         </Row>
-
                         <CarDiagram car={this.state}/>
                     </Container>
                 </div>

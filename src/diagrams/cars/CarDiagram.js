@@ -6,6 +6,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import Select from "react-select";
 import {parameterItems} from "../../application-config.json";
 import LineChart from "../charts/LineChart";
+import CollapsibleTable from "../charts/CollapseTable";
 
 class CarDiagram extends Component {
 
@@ -150,6 +151,9 @@ class CarDiagram extends Component {
                                                     }
                                                 }/>) :
                                             <LineChart data={diagramDataStub}/>}
+                                    </Col>
+                                    <Col>
+                                        <CollapsibleTable data={this.state}/>
                                     </Col>
                                 </Row>
                             </Container>
