@@ -94,7 +94,7 @@ class CollapsibleTable extends Component {
             await GraphicsRepo.getErrors(
                 [carId],
                 this.props.data.dateFrom,
-                this.props.dateTo)
+                this.props.data.dateTo)
                 .then(r => this.setState({errors: r}))
         } catch (rejectedValue) {
             alert(rejectedValue);
