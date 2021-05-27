@@ -23,7 +23,6 @@ class ModalDeletePark extends Component {
         e.preventDefault();
         try {
             await ParkRepo.deletePark(this.props.parkId);
-            alert("Парк удален!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");

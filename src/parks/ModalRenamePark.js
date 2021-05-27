@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
 import ParkRepo from "../repository/ParkRepo";
+import EditIcon from '@material-ui/icons/Edit';
 
 class ModalRenamePark extends Component {
 
@@ -12,7 +13,7 @@ class ModalRenamePark extends Component {
     }
 
     async componentDidMount() {
-        const parkId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+        const parkId = this.props.park.id
 
         await ParkRepo
             .getParkById(parkId)
@@ -40,14 +41,13 @@ class ModalRenamePark extends Component {
     onSubmit = async (e) => {
         e.preventDefault();
         let park = {
-            id: window.location.href.substring(window.location.href.lastIndexOf('/') + 1),
+            id: this.props.park.id,
             name: this.state.name,
             owner: localStorage.getItem("userId"),
             cars: this.state.cars
         }
         try {
             await ParkRepo.updatePark(park);
-            alert("Парк переименован!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");
@@ -56,27 +56,23 @@ class ModalRenamePark extends Component {
 
     render() {
         return (
-            <div>
-                <Button
-                    color="dark"
-                    style={{marginBottom: '2rem'}}
-                    onClick={this.toggle}>
-                    Редактировать
-                </Button>
-                <Modal style={{width: "360px"}}
+            <div style={{display:"inline"}}>
+                <EditIcon onClick={this.toggle}/>
+                <Modal style={{width: "370px"}}
                        isOpen={this.state.modal}
                        toggle={this.toggle}>
-                    <ModalHeader style={{width: "330px"}} toggle={this.toggle}>
-                        <ModalBody  >
+                    <ModalHeader style={{width: "350px", height:"250px"}} toggle={this.toggle}>
+                        <ModalBody>
                             <Form
+                                style={{width: "280px"}}
                                 onSubmit={this.onSubmit}>
-                                <FormGroup>
+                                <FormGroup >
                                     <Label style={{marginTop: '2rem'}} for="name">Название</Label>
                                     <br/>
                                     <Input
                                         type="text"
                                         name="name"
-                                        placeholder="Парк Иванова"
+                                        defaultValue={this.props.park.name}
                                         onChange={this.onChange}
                                     />
                                     <br/>
@@ -85,7 +81,7 @@ class ModalRenamePark extends Component {
                                         isOpen={this.state.modal}
                                         toggle={this.toggle}
                                         block
-                                    >Отправить</Button>
+                                    >Переименовать</Button>
                                 </FormGroup>
                             </Form>
                         </ModalBody>

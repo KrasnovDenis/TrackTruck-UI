@@ -32,7 +32,6 @@ class ChangePassword extends Component {
 
         try {
             await UserRepo.updatePassword(token, time, email, this.state.password);
-            alert("Пароль обновлен!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");

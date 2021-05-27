@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
 import CarRepo from "../repository/CarRepo";
 import ParkRepo from "../repository/ParkRepo";
-
+import {Button} from "@material-ui/core";
 
 class ModalAddPark extends Component {
 
@@ -59,7 +59,6 @@ class ModalAddPark extends Component {
         }
         try {
             await CarRepo.createCar(car);
-            alert("Машина добавлена!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");
@@ -70,10 +69,10 @@ class ModalAddPark extends Component {
         return (
             <div>
                 <Button
-                    color="primary"
-                    style={{marginBottom: '2rem'}}
+                    color="secondary"
+                    variant="outlined"
                     onClick={this.toggle}>
-                    Добавить
+                    Добавить машину
                 </Button>
                 <Modal style={{width: "360px"}}
                        isOpen={this.state.modal}

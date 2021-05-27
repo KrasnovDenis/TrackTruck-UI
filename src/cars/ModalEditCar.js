@@ -76,7 +76,6 @@ class ModalEditCar extends Component {
         }
         try {
             await CarRepo.updateCar(car);
-            alert("Машина изменена!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");

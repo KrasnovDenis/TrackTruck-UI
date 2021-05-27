@@ -36,7 +36,7 @@ class Registration extends Component {
         }
         try {
             await LoginRepo.registration(user);
-            alert("Регистрация прошла успешно!");
+            alert("Для активации аккаунта пожалуйста следуйте инструкциям из письма");
             window.location.href = '/login';
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");

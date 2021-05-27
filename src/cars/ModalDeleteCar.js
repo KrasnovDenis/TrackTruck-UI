@@ -29,7 +29,6 @@ class ModalDeleteCar extends Component {
         const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
         try {
             await CarRepo.deleteCarById(carId);
-            alert("Машина удалена!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");

@@ -14,7 +14,8 @@ class Park extends Component {
         super(props);
         this.state = {
             name: [],
-            cars: []
+            cars: [],
+            id: []
         }
     }
 
@@ -26,35 +27,40 @@ class Park extends Component {
             .then((resp) => (
                 this.setState({
                     cars: resp.data.cars,
-                    name: resp.data.name
+                    name: resp.data.name,
+                    id: resp.data.id
                 })
             ))
     }
 
     render() {
-        const park = this.state.park;
-        console.log(park)
+        let park = {
+            id: this.state.id,
+            name: this.state.name
+        }
+
         return (
             <div>
                 <div className="content-customer">
                     <SideBar menuItems={setUpSideBar()}/>
-
-                    <h1>{this.state.name}</h1>
-                    <hr/>
                     <Container>
+                        <Row>
+                            <Col >
+                                <h1 style={{display:"inline"}}>{this.state.name}</h1>
+                                <ModalRenamePark park={park}/>
+                            </Col>
+                        </Row>
+                        <br/>
                         <Row>
                             <Col sm="2">
                                 <ModalAddCar/>
-                            </Col>
-                            <Col sm="2">
-                                <ModalRenamePark/>
                             </Col>
                         </Row>
                     </Container>
                     {
                         this.state.cars.map(car => <VehicleLabel car={car}/>)
                     }
-                    <ParkDiagram cars = {this.state.cars}/>
+                    <ParkDiagram cars={this.state.cars}/>
                 </div>
                 <Footer/>
             </div>)

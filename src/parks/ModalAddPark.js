@@ -30,7 +30,6 @@ class ModalAddPark extends Component {
         }
         try {
             await ParkRepo.createPark(park);
-            alert("Парк добавлен!");
             window.location.reload();
         } catch (rejectedValue) {
             alert("Проверьте введенные параметры");

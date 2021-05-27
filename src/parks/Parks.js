@@ -6,7 +6,6 @@ import "../style/components/customer/Vehicle.css";
 import ParkRepo from "../repository/ParkRepo";
 import {Col, Container, Row} from "reactstrap";
 import ModalAddPark from "./ModalAddPark";
-import ModalRenamePark from "./ModalRenamePark";
 import Footer from "../common/Footer";
 import AllParksDiagram from "../diagrams/parks/AllParksDiagram";
 import List from "@material-ui/core/List";
@@ -55,7 +54,6 @@ class Parks extends Component {
                             </Col>
                             <Col className="sm-1">
                                 <ModalAddPark/>
-                                <ModalRenamePark/>
                             </Col>
                         </Row>
                     </Container>
