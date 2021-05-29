@@ -37,27 +37,25 @@ class Parks extends Component {
                     <br/>
                     <Container>
                         <Row>
-                            <Col>
+                            <Col lg="4">
                                 <h3>Ваши парки, {localStorage.getItem("firstName")}</h3>
                             </Col>
-
+                            <Col>
+                                <ModalAddPark/>
+                            </Col>
                         </Row>
-                        <br/>
                         <Row>
-
-                            <Col className="sm-1">
+                            <Col lg="12">
                                 <List dense={true}>
                                     {
                                         this.state.parks.map(park => <ParkLabel park={park}/>)
                                     }
                                 </List>
                             </Col>
-                            <Col className="sm-1">
-                                <ModalAddPark/>
-                            </Col>
+
                         </Row>
                     </Container>
-                    <AllParksDiagram parks = {this.state.parks}/>
+                    <AllParksDiagram parks={this.state.parks}/>
                 </div>
                 <Footer/>
             </div>
