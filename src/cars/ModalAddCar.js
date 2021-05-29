@@ -50,7 +50,6 @@ class ModalAddPark extends Component {
         e.preventDefault();
         let car = {
             model: this.state.model,
-            year: this.state.year,
             description: this.state.description,
             park: this.state.park.id,
             stateNumber: this.state.stateNumber,

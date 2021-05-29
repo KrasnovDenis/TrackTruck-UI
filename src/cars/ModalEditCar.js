@@ -7,8 +7,6 @@ import {Button} from "@material-ui/core";
 const carId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
 class ModalEditCar extends Component {
-    //todo: props as default value
-
     constructor(props) {
         super(props);
         this.state = {
@@ -39,12 +37,23 @@ class ModalEditCar extends Component {
                     model: resp.data.model,
                     description: resp.data.description,
                     park: resp.data.park,
-                    year: resp.data.year,
                     torqueId: resp.data.torqueId,
                     stateNumber: resp.data.stateNumber,
                     image: resp.data.image
                 })
             ))
+    }
+
+    getParkIdByName(parkName) {
+        for (let i = 0; i < this.state.allUsersParks.length; i++) {
+
+            console.log(this.state.allUsersParks[i])
+            if (this.state.allUsersParks[i].name === parkName) {
+                return this.state.allUsersParks[i].id
+            }
+        }
+
+        return parkName
     }
 
     toggle = () => {
@@ -57,19 +66,16 @@ class ModalEditCar extends Component {
     onChange = (e) => {
         const {name, value} = e.target;
         this.setState({[name]: value});
-
-        console.log(e.target);
-
     }
 
     onSubmit = async (e) => {
         e.preventDefault();
+        let parkId = this.getParkIdByName(this.state.park)
         let car = {
             id: carId,
             model: this.state.model,
-            year: this.state.year,
             description: this.state.description,
-            park: this.state.park,
+            park: parkId,
             torqueId: this.state.torqueId,
             stateNumber: this.state.stateNumber,
             image: this.state.image
@@ -83,8 +89,9 @@ class ModalEditCar extends Component {
     }
 
     render() {
+
         const parkList = this.state.allUsersParks.map(park => {
-            return park.name === this.state.park
+            return park.name === this.state.park.name
                 ? (<option value={park.id} selected="selected"> {park.name}</option>)
                 : (<option value={park.id}> {park.name}</option>);
         });
@@ -115,13 +122,7 @@ class ModalEditCar extends Component {
                                         onChange={this.onChange}
                                     />
 
-                                    <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
-                                    <Input
-                                        type="date"
-                                        name="year"
-                                        defaultValue={this.state.year}
-                                        onChange={this.onChange}
-                                    />
+
 
                                     <Label style={{marginTop: '2rem'}} for="torqueId">Torque ID (см в приложении
                                         Torque)</Label>

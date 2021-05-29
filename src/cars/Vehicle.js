@@ -35,7 +35,6 @@ class Vehicle extends Component {
                     this.setState({
                         model: response.data.model,
                         description: response.data.description,
-                        year: response.data.year,
                         park: response.data.park,
                         torqueId: response.data.torqueId,
                         stateNumber: response.data.stateNumber
