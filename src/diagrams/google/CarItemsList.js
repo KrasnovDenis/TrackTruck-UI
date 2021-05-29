@@ -37,7 +37,6 @@ class CarItemsList extends Component {
         super(props);
         this.state = {
             parks: [],
-            carMarker: [],
             carTrace: [],
             dateInputBlocked: false,
             dateFrom: new Date() - 1000 * 60 * 60 * 24,
@@ -54,13 +53,6 @@ class CarItemsList extends Component {
     }
 
     async onSelectCar(e) {
-        //    todo: здесь сделать 2 вещи
-        //    1. Сходить в influx и попытаться взять положение машины от current_data (если нет, то метку не ставить вообще)
-        //    2. Сходить в influx и взять НЕ ВСЕ точки-координаты GPS
-
-        await MapRepo.getMarkerForCar(e).then(i => {
-            this.setState({carMarker: i})
-        });
 
         if (!this.state.dateInputBlocked) {
             await MapRepo.getTrace(e, this.state.dateFrom, this.state.dateTo)
@@ -160,9 +152,7 @@ class CarItemsList extends Component {
                         containerElement={<div style={{height: `800px`}}/>}
                         mapElement={<div style={{height: `100%`}}/>}
                         data={{
-                            marker: this.state.carMarker,
                             trace: this.state.carTrace,
-
                         }}/>
                 </Col>
             </Row>

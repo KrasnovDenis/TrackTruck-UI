@@ -11,7 +11,8 @@ export class MapChart extends Component {
                 lat: 0.0, lng: 0.0
             },
             selectedPlace: {},
-            time: new Date().getTime()
+            time: new Date().getTime(),
+            isExtremeDriving: false
         };
     }
 
@@ -32,7 +33,7 @@ export class MapChart extends Component {
                 "time" : coordinate.time,
                 "lat" : coordinate.lat,
                 "lng" : coordinate.lng,
-                "extremeDriving" : coordinate.extremeDriving,
+                "extremeDriving" : i === 4 ? true : coordinate.extremeDriving,
             })
         }
 
@@ -57,6 +58,31 @@ export class MapChart extends Component {
                             strokeWeight: 2,
                         }}
                     />
+                    {triangleCoords.map((coordinate) =>
+                        <div>
+                            <Circle
+                                onClick={(e) => this.setState({
+                                    activeCircleCoords: e.latLng,
+                                    showingInfoWindow: true,
+                                    time: coordinate.time,
+                                    isExtremeDriving: false
+                                })
+                                }
+                                radius={5}
+                                defaultCenter={{
+                                    lat: coordinate.lat,
+                                    lng: coordinate.lng
+                                }}
+                                options={{
+                                    strokeColor: "#092faf",
+                                    strokeOpacity: 0.75,
+                                    fillColor: "#3981ee",
+                                    fillOpacity: 0.3,
+                                    strokeWeight: 2,
+                                }}
+                            />
+                        </div>
+                    )}
 
                     {triangleCoords.map((coordinate) =>
                         coordinate.extremeDriving &&
@@ -65,7 +91,8 @@ export class MapChart extends Component {
                                 onClick={(e) => this.setState({
                                     activeCircleCoords: e.latLng,
                                     showingInfoWindow: true,
-                                    time: coordinate.time
+                                    time: coordinate.time,
+                                    isExtremeDriving: true
                                 })
                                 }
                                 radius={5}
@@ -90,7 +117,10 @@ export class MapChart extends Component {
                         onCloseClick={this.onCloseInfoWindow}
                     >
                         <div>
-                            <h6>Опасное вождение</h6>
+                            {this.state.isExtremeDriving
+                                ? <h6>Опасное вождение</h6>
+                                : <h6>Данные GPS</h6> }
+                            <hr/>
                             <h6>Дата: {new Date(this.state.time).toLocaleDateString()}</h6>
                             <h6>Время: {new Date(this.state.time).toLocaleTimeString()}</h6>
                         </div>
