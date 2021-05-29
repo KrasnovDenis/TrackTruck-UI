@@ -7,7 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import ParkRepo from "../../repository/ParkRepo";
 import {DateTimePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
-import {Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
+import {Col, Form, FormGroup, Row} from "reactstrap";
 import MapChart from "./maps/MapChart";
 import MapRepo from "../../repository/MapRepo";
 import {apiKey} from "../../application-config.json";
@@ -94,13 +94,6 @@ class CarItemsList extends Component {
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                         <Form>
                             <FormGroup>
-                                <FormGroup check>
-                                    <Label check>
-                                        <Input type="checkbox" onChange={this.onChangeShowCurrentTime}/>
-                                        Показывать текущее положение
-                                    </Label>
-                                </FormGroup>
-                                <br/>
                                 <Row>
                                     <Col>
                                         <FormGroup>

@@ -26,16 +26,30 @@ export class MapChart extends Component {
     render() {
 
         const triangleCoords = [];
+        const fiveMinutes = 60000 * 5;
 
-        for(let i in this.props.data.trace) {
-            let coordinate = this.props.data.trace[i]
-            triangleCoords.push({
-                "time" : coordinate.time,
-                "lat" : coordinate.lat,
-                "lng" : coordinate.lng,
-                "extremeDriving" : i === 4 ? true : coordinate.extremeDriving,
-            })
+        const trace = this.props.data.trace
+        let series = []
+        for (let i = 0; i < trace.length; i++) {
+            let coordinate = trace[i]
+            let isLastElement = i === trace.length - 1
+            if (!isLastElement) {
+                let isSameSeries = trace[i + 1].time - coordinate.time < fiveMinutes
+                if (isSameSeries) {
+                    series.push({
+                        "time": coordinate.time,
+                        "lat": coordinate.lat,
+                        "lng": coordinate.lng,
+                        "extremeDriving": /* (i === 4) ? true : */coordinate.extremeDriving
+                    })
+                } else if (series.length > 0) {
+                    triangleCoords.push(series)
+                    series = []
+                }
+            }
         }
+
+        triangleCoords.map((entry) => console.log(entry))
 
         return (
             <div
@@ -50,66 +64,72 @@ export class MapChart extends Component {
                     defaultCenter={this.props.center}
                 >
 
-                    <Polyline
-                        path={triangleCoords}
-                        options={{
-                            strokeColor: "#ff2527",
-                            strokeOpacity: 0.75,
-                            strokeWeight: 2,
-                        }}
-                    />
-                    {triangleCoords.map((coordinate) =>
-                        <div>
-                            <Circle
-                                onClick={(e) => this.setState({
-                                    activeCircleCoords: e.latLng,
-                                    showingInfoWindow: true,
-                                    time: coordinate.time,
-                                    isExtremeDriving: false
-                                })
+                    {triangleCoords.map((entry) =>
+                        <Polyline
+                            path={entry}
+                            options={{
+                                strokeColor: "#ff2527",
+                                strokeOpacity: 0.75,
+                                strokeWeight: 2,
+                            }}
+                        />)
+                    }
+
+                    {triangleCoords.map((entry) =>
+                        (entry.map((coordinate) =>
+                            <div>
+                                <Circle
+                                    onClick={(e) => this.setState({
+                                        activeCircleCoords: e.latLng,
+                                        showingInfoWindow: true,
+                                        time: coordinate.time,
+                                        isExtremeDriving: false
+                                    })
+                                    }
+                                    radius={5}
+                                    defaultCenter={{
+                                        lat: coordinate.lat,
+                                        lng: coordinate.lng
+                                    }}
+                                    options={{
+                                        strokeColor: "#092faf",
+                                        strokeOpacity: 0.75,
+                                        fillColor: "#3981ee",
+                                        fillOpacity: 0.3,
+                                        strokeWeight: 2,
+                                        zIndex: 4
+                                    }}
+                                />
+
+
+                                {coordinate.extremeDriving &&
+
+                                <Circle
+                                    onClick={(e) => this.setState({
+                                        activeCircleCoords: e.latLng,
+                                        showingInfoWindow: true,
+                                        time: coordinate.time,
+                                        isExtremeDriving: true
+                                    })
+                                    }
+                                    radius={10}
+                                    defaultCenter={{
+                                        lat: coordinate.lat,
+                                        lng: coordinate.lng
+                                    }}
+                                    options={{
+                                        strokeColor: "#ff2527",
+                                        strokeOpacity: 0.75,
+                                        fillColor: "#ff0000",
+                                        fillOpacity: 0.3,
+                                        strokeWeight: 2,
+                                    }}
+                                />
                                 }
-                                radius={5}
-                                defaultCenter={{
-                                    lat: coordinate.lat,
-                                    lng: coordinate.lng
-                                }}
-                                options={{
-                                    strokeColor: "#092faf",
-                                    strokeOpacity: 0.75,
-                                    fillColor: "#3981ee",
-                                    fillOpacity: 0.3,
-                                    strokeWeight: 2,
-                                }}
-                            />
-                        </div>
+                            </div>
+                        ))
                     )}
 
-                    {triangleCoords.map((coordinate) =>
-                        coordinate.extremeDriving &&
-                        <div>
-                            <Circle
-                                onClick={(e) => this.setState({
-                                    activeCircleCoords: e.latLng,
-                                    showingInfoWindow: true,
-                                    time: coordinate.time,
-                                    isExtremeDriving: true
-                                })
-                                }
-                                radius={5}
-                                defaultCenter={{
-                                    lat: coordinate.lat,
-                                    lng: coordinate.lng
-                                }}
-                                options={{
-                                    strokeColor: "#ff2527",
-                                    strokeOpacity: 0.75,
-                                    fillColor: "#ff0000",
-                                    fillOpacity: 0.3,
-                                    strokeWeight: 2,
-                                }}
-                            />
-                        </div>
-                    )}
 
                     {this.state.showingInfoWindow &&
                     <InfoWindow
@@ -119,7 +139,7 @@ export class MapChart extends Component {
                         <div>
                             {this.state.isExtremeDriving
                                 ? <h6>Опасное вождение</h6>
-                                : <h6>Данные GPS</h6> }
+                                : <h6>Данные GPS</h6>}
                             <hr/>
                             <h6>Дата: {new Date(this.state.time).toLocaleDateString()}</h6>
                             <h6>Время: {new Date(this.state.time).toLocaleTimeString()}</h6>
@@ -132,4 +152,9 @@ export class MapChart extends Component {
     }
 }
 
-export default withScriptjs(withGoogleMap(MapChart));
+export default withScriptjs(withGoogleMap
+
+(
+    MapChart
+))
+;
