@@ -10,6 +10,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import {Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
 import MapChart from "./maps/MapChart";
 import MapRepo from "../../repository/MapRepo";
+import {apiKey} from "../../application-config.json";
 
 const useStyles = theme => ({
     root: {
@@ -40,7 +41,7 @@ class CarItemsList extends Component {
             carTrace: [],
             dateInputBlocked: false,
             dateFrom: new Date() - 1000 * 60 * 60 * 24,
-            dateTo: new Date()-1
+            dateTo: new Date() - 1
         }
     }
 
@@ -94,9 +95,8 @@ class CarItemsList extends Component {
     render() {
         const {classes} = this.props;
         let parks = this.state.parks;
-
+        let keyURL = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`
         return (
-
             <Row>
                 <Col>
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -139,7 +139,8 @@ class CarItemsList extends Component {
                                                               onClick={() => {
                                                                   this.onSelectCar(car.id)
                                                               }}>
-                                                        <ListItemText primary={car.model} secondary={car.stateNumber}/>
+                                                        <ListItemText primary={car.model}
+                                                                      secondary={car.stateNumber}/>
                                                     </ListItem>
                                                 ))}
                                             </ul>
@@ -151,10 +152,18 @@ class CarItemsList extends Component {
                     </MuiPickersUtilsProvider>
                 </Col>
                 <Col>
-                    <MapChart data={{
-                        marker: this.state.carMarker,
-                        trace: this.state.carTrace
-                    }}/>
+                    <MapChart
+                        center={{lat: 51.50513, lng: 45.95215}}
+                        zoom={12}
+                        googleMapURL={keyURL}
+                        loadingElement={<div style={{height: `100%`}}/>}
+                        containerElement={<div style={{height: `800px`}}/>}
+                        mapElement={<div style={{height: `100%`}}/>}
+                        data={{
+                            marker: this.state.carMarker,
+                            trace: this.state.carTrace,
+
+                        }}/>
                 </Col>
             </Row>
         );

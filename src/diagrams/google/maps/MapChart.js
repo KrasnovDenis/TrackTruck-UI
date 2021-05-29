@@ -1,41 +1,40 @@
 import React, {Component} from 'react';
-import {GoogleApiWrapper, InfoWindow, Map, Marker, Polyline} from "google-maps-react";
-import mapMarker from '../../../style/images/icons/mapMarker.png'
+import {Circle, GoogleMap, InfoWindow, Polyline, withGoogleMap, withScriptjs} from "react-google-maps";
+
 
 export class MapChart extends Component {
     constructor(props) {
         super(props);
-        this.onMarkerClick = this.onMarkerClick.bind(this);
         this.state = {
             showingInfoWindow: false,
-            activeMarker: {},
-            selectedPlace: {}
+            activeCircleCoords: {
+                lat: 0.0, lng: 0.0
+            },
+            selectedPlace: {},
+            time: new Date().getTime()
         };
     }
 
-    onMarkerClick(props, marker, e) {
+
+    onCloseInfoWindow = () => {
         this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        });
+            showingInfoWindow: false
+        })
     }
 
     render() {
-        const google = window.google
-        if (!this.props.google) {
-            return <div>Loading...</div>;
-        }
 
-        const triangleCoords = [
-            {"lat": 51.50513, "lng": 45.95215},
-            {"lat": 51.50515, "lng": 45.95325},
-            {"lat": 51.50504, "lng": 45.954},
-            {"lat": 51.50468, "lng": 45.9554},
-            {"lat": 51.50365, "lng": 45.95652},
-            {"lat": 51.50245, "lng": 45.95739},
-            {"lat": 51.50339, "lng": 45.96022}
-        ];
+        const triangleCoords = [];
+
+        for(let i in this.props.data.trace) {
+            let coordinate = this.props.data.trace[i]
+            triangleCoords.push({
+                "time" : coordinate.time,
+                "lat" : coordinate.lat,
+                "lng" : coordinate.lng,
+                "extremeDriving" : coordinate.extremeDriving,
+            })
+        }
 
         return (
             <div
@@ -43,47 +42,64 @@ export class MapChart extends Component {
                     position: "relative",
                     height: "calc(100vh - 20px)",
                     width: "90vh"
-                }}
-            >
-                <Map style={{}}
-                     initialCenter={{
-                         lat: 51.50369,
-                         lng: 45.95136
-                     }}
-                     google={this.props.google} zoom={14}>
+                }}>
 
-                    <Marker
-                        onClick={this.onMarkerClick}
-                        icon={{
-                            url: mapMarker,
-                            size: new google.maps.Size(71, 71),
-                            origin: new google.maps.Point(0, 0),
-                            anchor: new google.maps.Point(17, 34),
-                            scaledSize: new google.maps.Size(25, 25)
-                        }}
-                        name={"Current location"}
-                    />
-                    <InfoWindow
-                        marker={this.state.activeMarker}
-                        visible={this.state.showingInfoWindow}
-                    >
-                        <div>
-                            <h1>{this.state.selectedPlace.name}</h1>
-                        </div>
-                    </InfoWindow>
+                <GoogleMap
+                    defaultZoom={this.props.zoom}
+                    defaultCenter={this.props.center}
+                >
 
                     <Polyline
                         path={triangleCoords}
-                        strokeColor="#FF0000"
-                        strokeOpacity={0.8}
-                        strokeWeight={2}/>
-                </Map>
+                        options={{
+                            strokeColor: "#ff2527",
+                            strokeOpacity: 0.75,
+                            strokeWeight: 2,
+                        }}
+                    />
+
+                    {triangleCoords.map((coordinate) =>
+                        coordinate.extremeDriving &&
+                        <div>
+                            <Circle
+                                onClick={(e) => this.setState({
+                                    activeCircleCoords: e.latLng,
+                                    showingInfoWindow: true,
+                                    time: coordinate.time
+                                })
+                                }
+                                radius={5}
+                                defaultCenter={{
+                                    lat: coordinate.lat,
+                                    lng: coordinate.lng
+                                }}
+                                options={{
+                                    strokeColor: "#ff2527",
+                                    strokeOpacity: 0.75,
+                                    fillColor: "#ff0000",
+                                    fillOpacity: 0.3,
+                                    strokeWeight: 2,
+                                }}
+                            />
+                        </div>
+                    )}
+
+                    {this.state.showingInfoWindow &&
+                    <InfoWindow
+                        position={this.state.activeCircleCoords}
+                        onCloseClick={this.onCloseInfoWindow}
+                    >
+                        <div>
+                            <h6>Опасное вождение</h6>
+                            <h6>Дата: {new Date(this.state.time).toLocaleDateString()}</h6>
+                            <h6>Время: {new Date(this.state.time).toLocaleTimeString()}</h6>
+                        </div>
+                    </InfoWindow>
+                    }
+                </GoogleMap>
             </div>
         );
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: "AIzaSyA2OKiMDYIitVNVOjhaE8fqT0xv1LEXZe4",
-    v: "3.30"
-})(MapChart);
+export default withScriptjs(withGoogleMap(MapChart));
