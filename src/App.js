@@ -7,9 +7,6 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Admin from "./admin/Admin";
-import Customers from "./admin/Customers";
-import Employees from "./admin/Employees";
-import Messages from "./admin/Messages";
 import Vehicles from "./cars/Vehicles";
 import Feedback from "./customer/Feedback";
 import {NotFound} from "./common/NotFound";
@@ -34,9 +31,6 @@ function App() {
                 <Route path={'/registration'} exact component={Registration}/>
 
                 <Route path={'/admin'} exact component={Admin}/>
-                <Route path={'/admin/customers'} exact component={Customers}/>
-                <Route path={'/admin/employees'} exact component={Employees}/>
-                <Route path={'/admin/messages'} exact component={Messages}/>
 
                 <Route path={'/customer'} exact component={PrivateArea}/>
                 <Route path={'/customer/vehicles'} exact component={Vehicles}/>

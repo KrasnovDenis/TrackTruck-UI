@@ -11,7 +11,7 @@ class PrivateArea extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            companyName: [],
+            name: [],
             licenseDate: [],
             daysLeft: [],
             carsCount: [],
@@ -26,7 +26,7 @@ class PrivateArea extends Component {
             await UserRepo.getUserInfo(userId)
                 .then((response) => {
                     this.setState({
-                        companyName: response.data.companyName,
+                        name: response.data.name,
                         licenseDate: response.data.licenseDate,
                         daysLeft: response.data.daysLeft,
                         carsCount: response.data.carsCount,
@@ -72,7 +72,7 @@ class PrivateArea extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <h1>{this.state.companyName}</h1>
+                                <h1>{this.state.name}</h1>
                             </Col>
                         </Row>
                         <br/>

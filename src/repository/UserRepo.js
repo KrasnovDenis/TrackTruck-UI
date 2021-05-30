@@ -9,6 +9,21 @@ class UserRepo {
         return axios.get(`${URL}/${id}`);
     }
 
+    getInfoForAllUsers() {
+        return axios.get(`${URL}`);
+    }
+
+    updateUserStatus(email, status) {
+        const requestBody = {
+            email: email,
+            status: status
+        }
+
+
+        return axios.post(`${URL}/status`,
+            requestBody);
+    }
+
     forgotPassword(email) {
         return axios.get(`${HOST_URL}/api/mail/forgotPassword/${email}`);
     }

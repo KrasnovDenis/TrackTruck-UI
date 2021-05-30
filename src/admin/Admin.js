@@ -1,24 +1,35 @@
 import React, {Component} from 'react';
-import {SideBar} from "../common/SideBar";
 import '../style/pages/Admin.css';
+import {Col, Container, Row} from "reactstrap";
+import CustomerTable from "./CustomerTable";
+import Footer from "../common/Footer";
 
 class Admin extends Component {
+
+
     render() {
-
-        let sideBarItems;
-
-        sideBarItems = setUpSideBar();
-
         return (
-            <div>
-                <SideBar menuItems={sideBarItems}/>
-                <div className="content-admin">
-                    <div className="admin-info">
-                        <h1>Кабинет администратора</h1>
-                        <hr/>
-                        Добро пожаловать в кабинет администратора
-                    </div>
-                </div>
+            <div className="homeContainer">
+                <Container style={{marginLeft: "6%", backgroundColor: "#fff"}}>
+                    <Row>
+                        <Col md="5" style={{fontFamily: "Impact", fontSize: "16px"}}>
+                            <h1>Кабинет администратора</h1>
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Col lg={4}>
+                            <h3>
+                                Обращения клиентов
+                            </h3>
+                        </Col>
+                        <Col lg={8}>
+                            <CustomerTable/>
+                        </Col>
+                    </Row>
+                </Container>
+
+                <Footer/>
             </div>
         );
     }
@@ -26,12 +37,4 @@ class Admin extends Component {
 
 export default Admin
 
-export function setUpSideBar() {
-    const items = new Map();
-    items.set('/admin/', 'Мои задачи');
-    items.set('/admin/customers', 'Клиенты');
-    items.set('/admin/employees', 'Сотрудники');
-    items.set('/admin/messages', 'Обращения');
-    return items;
-}
 
