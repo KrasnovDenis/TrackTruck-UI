@@ -13,7 +13,7 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            isAlert : false
+            isAlert: false
         }
     }
 
@@ -28,12 +28,18 @@ class Login extends Component {
             const password = this.state.password
             const response = await LoginRepo.login(email, password)
             localStorage.setItem('Authorization', "Basic " + btoa(email + ':' + password))
-            localStorage.setItem('firstName',response.data.firstName)
-            localStorage.setItem('lastName',response.data.lastName)
-            localStorage.setItem('picture',response.data.picture)
-            localStorage.setItem('email',response.data.email)
-            localStorage.setItem('userId',response.data.id)
-            window.location.href="/customer";
+            localStorage.setItem('firstName', response.data.firstName)
+            localStorage.setItem('lastName', response.data.lastName)
+            localStorage.setItem('picture', response.data.picture)
+            localStorage.setItem('email', response.data.email)
+            localStorage.setItem('userId', response.data.id)
+            localStorage.setItem('roleId', response.data.roleId)
+
+            if (response.data.roleId !== 'ADMIN') {
+                window.location.href = "/customer";
+            } else {
+                window.location.href = "/admin";
+            }
         } catch (rejectedValue) {
             this.setState({
                 isAlert: true
@@ -43,55 +49,57 @@ class Login extends Component {
 
     render() {
         return (
-                <div className="container-login100">
+            <div className="container-login100">
 
 
-                    <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-                        <div className="login100-form validate-form flex-sb flex-w">
-                            <div className="p-t-31 p-b-9">
-                                {this.state.isAlert
-                                &&<Alert severity="error" onClose={() => {this.setState({
+                <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                    <div className="login100-form validate-form flex-sb flex-w">
+                        <div className="p-t-31 p-b-9">
+                            {this.state.isAlert
+                            && <Alert severity="error" onClose={() => {
+                                this.setState({
                                     isAlert: false
-                                })}}>Неверные логин или пароль</Alert>}
-						<span className="txt1">
+                                })
+                            }}>Неверные логин или пароль</Alert>}
+                            <span className="txt1">
 							Email
 						</span>
-                            </div>
-                            <div className="wrap-input100 validate-input" data-validate="Email is required">
-                                <input className="input100" onChange={this.onChange} type="text" name="email"/>
-                                <span className="focus-input100"/>
-                            </div>
+                        </div>
+                        <div className="wrap-input100 validate-input" data-validate="Email is required">
+                            <input className="input100" onChange={this.onChange} type="text" name="email"/>
+                            <span className="focus-input100"/>
+                        </div>
 
-                            <div className="p-t-13 p-b-9">
+                        <div className="p-t-13 p-b-9">
 						<span className="txt1">
 							Пароль
 						</span>
-                            </div>
-                            <div className="wrap-input100 validate-input" data-validate="Password is required">
-                                <input className="input100" onChange={this.onChange} type="password" name="password"/>
-                                <span className="focus-input100"/>
-
-                            </div>
-                            <Button
-                                color="dark"
-                                style={{marginBottom: '2rem'}}
-                                onClick={this.onLogin}>
-                                Войти
-                            </Button>
                         </div>
+                        <div className="wrap-input100 validate-input" data-validate="Password is required">
+                            <input className="input100" onChange={this.onChange} type="password" name="password"/>
+                            <span className="focus-input100"/>
 
-                        <Fragment>
-                            <Registration/>
-                        </Fragment>
-
-                        <div className="w-full text-center p-t-55">
-
-                            <br/>
-                            <ForgotPassword/>
                         </div>
-
+                        <Button
+                            color="dark"
+                            style={{marginBottom: '2rem'}}
+                            onClick={this.onLogin}>
+                            Войти
+                        </Button>
                     </div>
+
+                    <Fragment>
+                        <Registration/>
+                    </Fragment>
+
+                    <div className="w-full text-center p-t-55">
+
+                        <br/>
+                        <ForgotPassword/>
+                    </div>
+
                 </div>
+            </div>
 
         )
     }

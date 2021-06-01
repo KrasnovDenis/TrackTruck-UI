@@ -7,6 +7,7 @@ class Navbar extends Component {
 
     render() {
         const isAuthenticated = localStorage.getItem("Authorization") || false;
+        const privateAreaLink = localStorage.getItem('roleId') === 'ADMIN' ? '/admin' : '/customer' ;
         const button = !isAuthenticated ?
             (<li key="nav-item" className='nav-item'>
                 <Link className='nav-link'
@@ -19,7 +20,7 @@ class Navbar extends Component {
                     {menuItems.rightItems.Logout.name}</Link>
             </li>)
         const privateArea = isAuthenticated ? (<li key="privateArea" className='nav-item'>
-            <Link className='nav-link' to={"/customer"}>{"Личный кабинет"}</Link>
+            <Link className='nav-link' to={privateAreaLink}>{"Личный кабинет"}</Link>
         </li>) : (<div/>)
 
         return (
