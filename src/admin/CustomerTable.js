@@ -171,8 +171,9 @@ export default class CustomerTable extends Component {
                                         onChange={(event) => (this.handleSelect(event, row.email))}
                                         displayEmpty
                                     >
-                                        <MenuItem value={"Normal"}>Нормальный</MenuItem>
-                                        <MenuItem value={"Disabled"}>Выключен</MenuItem>
+                                        <MenuItem value={"NORMAL"}>Нормальный</MenuItem>
+                                        <MenuItem value={"DISABLED"}>Выключен</MenuItem>
+                                        <MenuItem value={"BLOCKED"}>Заблокирован</MenuItem>
                                     </Select>
                                 </TableCell>
                                 <TableCell style={{width: 160}}>
