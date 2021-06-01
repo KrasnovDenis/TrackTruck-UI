@@ -29,6 +29,10 @@ class MessageRepo {
         return await axios.post(`${URL}load/all`)
     }
 
+    async getMessagesForUser(userId) {
+        return await axios.post(`${URL}load/${userId}`)
+    }
+
 }
 
 
