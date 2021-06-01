@@ -39,11 +39,16 @@ class UserRepo {
         return axios.post(`${HOST_URL}/api/users/updatePassword`, userData);
     }
 
-    deleteCurrentUser(){
+    deleteCurrentUser() {
         let userId = localStorage.getItem('userId')
         localStorage.clear()
         axios.delete(`${HOST_URL}/api/users/${userId}`)
 
+    }
+
+    increaseMoney() {
+        let userId = localStorage.getItem('userId')
+       return axios.patch(`${HOST_URL}/api/users/${userId}`)
     }
 }
 

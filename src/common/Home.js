@@ -5,7 +5,6 @@ import "../style/pages/Home.css"
 import Footer from "./Footer";
 
 class Home extends Component {
-
     render() {
         return (
             <div className="homeContainer">

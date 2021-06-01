@@ -6,6 +6,7 @@ import compLogo from "../style/images/icons/company-logo.png";
 import Footer from "../common/Footer";
 import UserRepo from "../repository/UserRepo";
 import DeleteUserModal from "./DeleteUserModal";
+import {Button} from "@material-ui/core";
 
 class PrivateArea extends Component {
 
@@ -31,12 +32,23 @@ class PrivateArea extends Component {
                         licenseDate: response.data.licenseDate,
                         daysLeft: response.data.daysLeft,
                         carsCount: response.data.carsCount,
-                        parksCount: response.data.parksCount
+                        parksCount: response.data.parksCount,
+                        money: parseFloat(response.data.money)
                     })
                 })
         } catch (e) {
             console.log("Данного пользователя не существует")
         }
+    }
+
+    increaseMoney = async () => {
+        await UserRepo.increaseMoney().then(
+            (r) => {
+                this.setState({
+                    money: this.state.money + 100
+                })
+            }
+        )
     }
 
     render() {
@@ -71,12 +83,18 @@ class PrivateArea extends Component {
                                 <br/>
                             </Col>
                         </Row>
+
                         <Row>
                             <Col>
                                 <h1>{this.state.name}</h1>
                             </Col>
                         </Row>
-                        <br/>
+
+                        <Row>
+                            <Col>
+                                <h5>Баланс: {this.state.money}</h5>
+                            </Col>
+                        </Row>
                         <br/>
                         <br/>
                         <Row>
@@ -85,7 +103,14 @@ class PrivateArea extends Component {
                                 <h5> Ваша лицензия действительна до {licenseDueDate}</h5>
                             </Col>
                             <Col>
+                                <Button
+                                    color={"primary"}
+                                    variant={"outlined"}
+                                    onClick={this.increaseMoney}>
+                                    Пополнить баланс
+                                </Button>
                                 <DeleteUserModal/>
+
                             </Col>
                         </Row>
 
