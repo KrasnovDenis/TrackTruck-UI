@@ -3,6 +3,7 @@ import '../style/pages/Admin.css';
 import {Col, Container, Row} from "reactstrap";
 import CustomerTable from "./CustomerTable";
 import Footer from "../common/Footer";
+import AdminsChat from "./AdminsChat";
 
 class Admin extends Component {
 
@@ -19,9 +20,7 @@ class Admin extends Component {
                     <hr/>
                     <Row>
                         <Col lg={4}>
-                            <h3>
-                                Обращения клиентов
-                            </h3>
+                            <AdminsChat/>
                         </Col>
                         <Col lg={8}>
                             <CustomerTable/>

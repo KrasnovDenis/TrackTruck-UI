@@ -104,7 +104,6 @@ export default class CustomerTable extends Component {
                     })
                 ))
 
-            console.log(this.state.userList)
         } catch (rejected) {
             console.log(rejected)
         }
@@ -172,8 +171,8 @@ export default class CustomerTable extends Component {
                                         onChange={(event) => (this.handleSelect(event, row.email))}
                                         displayEmpty
                                     >
-                                        <MenuItem value={"Normal"}>Normal</MenuItem>
-                                        <MenuItem value={"Disabled"}>Disabled</MenuItem>
+                                        <MenuItem value={"Normal"}>Нормальный</MenuItem>
+                                        <MenuItem value={"Disabled"}>Выключен</MenuItem>
                                     </Select>
                                 </TableCell>
                                 <TableCell style={{width: 160}}>

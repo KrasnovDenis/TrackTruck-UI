@@ -40,7 +40,7 @@ export class MapChart extends Component {
                         "time": coordinate.time,
                         "lat": coordinate.lat,
                         "lng": coordinate.lng,
-                        "extremeDriving": /* (i === 4) ? true : */coordinate.extremeDriving
+                        "extremeDriving":  (i === 6) ? true : coordinate.extremeDriving
                     })
                 } else if (series.length > 0) {
                     triangleCoords.push(series)
