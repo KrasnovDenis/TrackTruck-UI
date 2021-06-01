@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Col, Container, Form, FormGroup, Input, Label, Row} from "reactstrap";
+import {Col, Container, Form, FormGroup, Input, Label, Row} from "reactstrap";
 import GraphicsRepo from "../../repository/GraphicsRepo";
 import {DateTimePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
@@ -7,6 +7,7 @@ import Select from "react-select";
 import {parameterItems} from "../../application-config.json";
 import LineChart from "../charts/LineChart";
 import CollapsibleTable from "../charts/CollapseTable";
+import {Button} from "@material-ui/core";
 
 class CarDiagram extends Component {
 
@@ -46,7 +47,7 @@ class CarDiagram extends Component {
     }
 
     onSubmit = async () => {
-        if(this.state.parameter.length === 0){
+        if (this.state.parameter.length === 0) {
             alert("Проверьте параметры графика");
             return;
         }
@@ -136,7 +137,9 @@ class CarDiagram extends Component {
                                 </Row>
                                 <Row>
                                     <Col md="2">
-                                        <Button onClick={this.onSubmit}
+                                        <Button
+                                            variant={"outlined"}
+                                            onClick={this.onSubmit}
                                                 onSubmit={false}> Применить</Button>
                                     </Col>
                                 </Row>

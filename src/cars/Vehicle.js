@@ -51,7 +51,7 @@ class Vehicle extends Component {
             <div>
                 <SideBar menuItems={setUpSideBar()}/>
                 <div className="content-customer">
-                    <Container>
+                    <Container style={{border: "0px"}}>
                         <Row>
                             <Col sm="4">
                                 <img className="car-img-top" alt="машина" width="250px" style={{borderRadius: "50px"}}
@@ -74,7 +74,7 @@ class Vehicle extends Component {
                                 <ModalDeleteCar/>
                             </Col>
                         </Row>
-                        <CarDiagram car={this.state}/>
+                            <CarDiagram car={this.state}/>
                     </Container>
                 </div>
                 <Footer/>

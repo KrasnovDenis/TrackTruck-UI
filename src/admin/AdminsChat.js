@@ -38,11 +38,6 @@ export default class AdminsChat extends Component {
     }
 
     render() {
-        let stub = {
-            senderId: "1231231",
-            name: "Олег Петров",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-        }
         console.log(this.state.allMessages)
         return (
             <div>
