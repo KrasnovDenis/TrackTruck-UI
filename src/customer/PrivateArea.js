@@ -5,6 +5,7 @@ import {Col, Container, Row} from "reactstrap";
 import compLogo from "../style/images/icons/company-logo.png";
 import Footer from "../common/Footer";
 import UserRepo from "../repository/UserRepo";
+import DeleteUserModal from "./DeleteUserModal";
 
 class PrivateArea extends Component {
 
@@ -79,9 +80,12 @@ class PrivateArea extends Component {
                         <br/>
                         <br/>
                         <Row>
-                            <Col>
+                            <Col lg={9}>
                                 <h4> Вы с нами уже {daysLeft} дней</h4>
                                 <h5> Ваша лицензия действительна до {licenseDueDate}</h5>
+                            </Col>
+                            <Col>
+                                <DeleteUserModal/>
                             </Col>
                         </Row>
 

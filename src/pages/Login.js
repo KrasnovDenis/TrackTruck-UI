@@ -4,6 +4,7 @@ import LoginRepo from "../repository/LoginRepo";
 import Registration from "./Registration";
 import {Button} from "reactstrap";
 import ForgotPassword from "../common/ForgotPassword";
+import Alert from '@material-ui/lab/Alert';
 
 class Login extends Component {
 
@@ -11,7 +12,8 @@ class Login extends Component {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            isAlert : false
         }
     }
 
@@ -33,16 +35,24 @@ class Login extends Component {
             localStorage.setItem('userId',response.data.id)
             window.location.href="/customer";
         } catch (rejectedValue) {
-            alert("Неверные логин или пароль");
+            this.setState({
+                isAlert: true
+            })
         }
     }
 
     render() {
         return (
                 <div className="container-login100">
+
+
                     <div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                         <div className="login100-form validate-form flex-sb flex-w">
                             <div className="p-t-31 p-b-9">
+                                {this.state.isAlert
+                                &&<Alert severity="error" onClose={() => {this.setState({
+                                    isAlert: false
+                                })}}>Неверные логин или пароль</Alert>}
 						<span className="txt1">
 							Email
 						</span>

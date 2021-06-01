@@ -38,6 +38,13 @@ class UserRepo {
         console.log(userData)
         return axios.post(`${HOST_URL}/api/users/updatePassword`, userData);
     }
+
+    deleteCurrentUser(){
+        let userId = localStorage.getItem('userId')
+        localStorage.clear()
+        axios.delete(`${HOST_URL}/api/users/${userId}`)
+
+    }
 }
 
 export default new UserRepo();
