@@ -13,6 +13,15 @@ class CarRepo {
         return axios.put(`${URL}/${car.id}`, car);
     }
 
+    uploadPicture(carId, form) {
+       return axios({
+            method: "PATCH",
+            url: `${URL}/${carId}`,
+            data: form,
+            headers: { "Content-Type": "multipart/form-data" },
+        })
+    }
+
     deleteCarById(id) {
         return axios.delete(`${URL}/${id}`);
     }

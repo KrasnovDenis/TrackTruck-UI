@@ -12,20 +12,27 @@ class Admin extends Component {
         return (
             <div className="homeContainer">
                 <Container style={{marginLeft: "6%", backgroundColor: "#fff"}}>
-                    <Row>
-                        <Col md="5" style={{fontFamily: "Impact", fontSize: "16px"}}>
-                            <h1>Кабинет администратора</h1>
-                        </Col>
-                    </Row>
-                    <hr/>
-                    <Row>
-                        <Col lg={4}>
-                            <AdminsChat/>
-                        </Col>
-                        <Col lg={8}>
-                            <CustomerTable/>
-                        </Col>
-                    </Row>
+                    {
+                        localStorage.getItem('roleId') !== 'ADMIN'
+                            ? <h2> недостаточно прав </h2>
+                            : <div>
+                                <Row>
+                                    <Col md="5" style={{fontFamily: "Impact", fontSize: "16px"}}>
+                                        <h1>Кабинет администратора</h1>
+                                    </Col>
+                                </Row>
+                                <hr/>
+                                <Row>
+                                    <Col lg={4}>
+                                        <AdminsChat/>
+                                    </Col>
+                                    <Col lg={8}>
+                                        <CustomerTable/>
+                                    </Col>
+                                </Row>
+                            </div>
+                    }
+
                 </Container>
 
                 <Footer/>

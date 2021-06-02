@@ -15,7 +15,6 @@ class ModalEditCar extends Component {
             year: "",
             description: "",
             park: [],
-            image: [],
             allUsersParks: [],
             userId: localStorage.getItem("userId")
         }
@@ -39,7 +38,6 @@ class ModalEditCar extends Component {
                     park: resp.data.park,
                     torqueId: resp.data.torqueId,
                     stateNumber: resp.data.stateNumber,
-                    image: resp.data.image
                 })
             ))
     }
@@ -78,7 +76,6 @@ class ModalEditCar extends Component {
             park: parkId,
             torqueId: this.state.torqueId,
             stateNumber: this.state.stateNumber,
-            image: this.state.image
         }
         try {
             await CarRepo.updateCar(car);
@@ -162,12 +159,6 @@ class ModalEditCar extends Component {
                                         }
                                     </Input>
 
-                                    <Label style={{marginTop: '2rem'}} for="image">Картинка</Label>
-                                    <Input
-                                        type="file"
-                                        name="image"
-                                        onChange={this.onChange}
-                                    />
                                     <br/>
                                     <Button
                                         type="submit"
@@ -175,7 +166,6 @@ class ModalEditCar extends Component {
                                         variant="outlined"
                                         isOpen={this.state.modal}
                                         toggle={this.toggle}
-                                        block
                                     >Редактировать</Button>
                                 </FormGroup>
                             </Form>

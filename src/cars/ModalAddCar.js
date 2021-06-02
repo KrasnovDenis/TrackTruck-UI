@@ -90,14 +90,6 @@ class ModalAddPark extends Component {
                                         required
                                     />
 
-                                    <Label style={{marginTop: '2rem'}} for="year">Год выпуска</Label>
-                                    <Input
-                                        type="date"
-                                        name="year"
-                                        onChange={this.onChange}
-                                        required
-                                    />
-
                                     <Label style={{marginTop: '2rem'}} for="description">Описание</Label>
                                     <Input
                                         type="text"
