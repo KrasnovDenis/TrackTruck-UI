@@ -26,21 +26,22 @@ export class MapChart extends Component {
     render() {
 
         const triangleCoords = [];
-        const fiveMinutes = 60000 * 5;
+        const fiveMinutes = 1000 * 60;
 
         const trace = this.props.data.trace
+        console.log(trace)
         let series = []
         for (let i = 0; i < trace.length; i++) {
             let coordinate = trace[i]
             let isLastElement = i === trace.length - 1
             if (!isLastElement) {
-                let isSameSeries = trace[i + 1].time - coordinate.time < fiveMinutes
+                let isSameSeries = (trace[i + 1].time - coordinate.time) < fiveMinutes
                 if (isSameSeries) {
                     series.push({
                         "time": coordinate.time,
                         "lat": coordinate.lat,
                         "lng": coordinate.lng,
-                        "extremeDriving":  (i === 6) ? true : coordinate.extremeDriving
+                        "extremeDriving": coordinate.extremeDriving
                     })
                 } else if (series.length > 0) {
                     triangleCoords.push(series)
@@ -49,7 +50,9 @@ export class MapChart extends Component {
             }
         }
 
-        triangleCoords.map((entry) => console.log(entry))
+        if (triangleCoords.length === 0) {
+            triangleCoords.push(series)
+        }
 
         return (
             <div
