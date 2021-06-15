@@ -29,6 +29,10 @@ class CarRepo {
     createCar(car) {
         return axios.post(URL, car);
     }
+
+    getPicture(pictureLink) {
+        return axios.get(`${URL}/picture/${pictureLink}`);
+    }
 }
 
 export default new CarRepo();

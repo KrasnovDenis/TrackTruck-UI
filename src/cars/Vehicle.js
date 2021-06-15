@@ -9,6 +9,8 @@ import ModalEditCar from "./ModalEditCar";
 import ModalDeleteCar from "./ModalDeleteCar";
 import Footer from "../common/Footer";
 import CarDiagram from "../diagrams/cars/CarDiagram";
+import ModalChangePicture from "./ModalChangePicture";
+import {HOST_URL} from "../application-config.json";
 
 class Vehicle extends Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class Vehicle extends Component {
             year: "",
             park: "",
             torqueId: "",
-            image: [],
+            pictureLink: "",
             fuel: []
         }
     }
@@ -37,15 +39,19 @@ class Vehicle extends Component {
                         description: response.data.description,
                         park: response.data.park,
                         torqueId: response.data.torqueId,
-                        stateNumber: response.data.stateNumber
+                        stateNumber: response.data.stateNumber,
+                        pictureLink: response.data.picture
                     })
                 })
+
         } catch (e) {
             console.log(e)
         }
     }
 
     render() {
+        let linkToCarPicture = `${HOST_URL}/api/cars/picture/${this.state.pictureLink}`
+        let carPicture = linkToCarPicture ? linkToCarPicture : carPic;
         let description = (this.state.description) ? (<h5> Описание : {this.state.description}</h5>) : null;
         return (
             <div>
@@ -54,8 +60,8 @@ class Vehicle extends Component {
                     <Container style={{border: "0px"}}>
                         <Row>
                             <Col sm="4">
-                                <img className="car-img-top" alt="машина" width="250px" style={{borderRadius: "50px"}}
-                                     src={carPic}/>
+                                <img className="car-img-top" alt="машина" width="250px" style={{borderRadius: "10px"}}
+                                     src={carPicture}/>
                             </Col>
                             <Col sm="7">
                                 <div>
@@ -74,7 +80,10 @@ class Vehicle extends Component {
                                 <ModalDeleteCar/>
                             </Col>
                         </Row>
-                            <CarDiagram car={this.state}/>
+                        <Row>
+                            <ModalChangePicture/>
+                        </Row>
+                        <CarDiagram car={this.state}/>
                     </Container>
                 </div>
                 <Footer/>
