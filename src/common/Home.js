@@ -3,6 +3,9 @@ import sweater from "../style/images/blue-sweater.jpg";
 import {Col, Container, Row} from 'reactstrap';
 import "../style/pages/Home.css"
 import Footer from "./Footer";
+import money from '../style/images/icons/money.png'
+import fuel from '../style/images/icons/fuel.png'
+import gps from '../style/images/icons/gps.png'
 
 class Home extends Component {
     render() {
@@ -32,9 +35,24 @@ class Home extends Component {
                         </Col>
                     </Row>
                     <Row className="Benefit">
-                        <Col>
-                            <h3 style={{textAlign: "center"}}> Наши основные преимущества</h3>
-                        {/*    todo: make explanation why monitoring is important*/}
+                        <Col style={{textAlign: "center"}}>
+                            <h3> Наши возможности</h3>
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <strong> С нами дешевле</strong>
+                                        <img src={money} width={300} height={300} alt={"money"}/>
+                                    </Col>
+                                    <Col>
+                                        <strong> Контроль топлива</strong>
+                                        <img src={fuel}  width={300} height={300} alt={"money"}/>
+                                    </Col>
+                                    <Col>
+                                        <strong>Отслеживание GPS</strong>
+                                        <img src={gps}  width={300} height={300} alt={"money"}/>
+                                    </Col>
+                                </Row>
+                            </Container>
                         </Col>
                         <br/>
                         <br/>
