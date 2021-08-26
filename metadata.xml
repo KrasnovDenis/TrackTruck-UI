@@ -1,0 +1,15 @@
+<md:EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://localhost:9000/auth/realms/IDP" ID="ID_66871c1f-1a7d-48c1-bcc0-138a6b38461c">
+<md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="true" WantAssertionsSigned="true">
+<md:KeyDescriptor use="signing">
+<ds:KeyInfo>
+<ds:KeyName>b8a4BhvfxO2XIX8XNvFiqTxok3AX-Uv2IkzYoF0TP_c</ds:KeyName>
+<ds:X509Data>
+<ds:X509Certificate>MIIClTCCAX0CBgF7fSHnKjANBgkqhkiG9w0BAQsFADAOMQwwCgYDVQQDDANJRFAwHhcNMjEwODI1MTE0NDM5WhcNMzEwODI1MTE0NjE5WjAOMQwwCgYDVQQDDANJRFAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHOdGMWOYOL3DBLWbKOwJqUzghPoUFOlHE5ixaCdmctWB1ZEOvninjdjFDigXvRSi5DMJC569CLy/U80DiR/EVmi0juwBSm1+wQK5eemdw+rcCQqG0Nc77sv/8ljbflsAqjuWHEGNGCGBEJAEsd0PhklZ2oxBa7K2WjA6vh3lYOyZ2HhsdPubFzH4s8K3ZMuMvhzMvqhzjYEhU0aniABmNwSoYzPZf43WXM+pQFdwVBUKB3Ku3fE67BbUqX8GQAy3v8GCikRHs646exiI6VSwYPNtusKdqAkdp2HeufyeZcX1wi7Gdr/ARx4Zn5g5EA7ONlUoYrvuo0taFJbkr60ZnAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAGgLS/CDZFjln3dZJOjBRNMUyCgmok53SXNXWBhapf8emXcfhkvmwIDGK5TPoH9/vWzBc92PM3V3SomQEaXBuq55IQHphYzRu3lvYbhovqFvwUfrZbfFsIu7WPh7Zq6mCfQBas+ZQggndzN8qavokbN5Bm/SeMX3q6qyqeOLfgzoE4i81YbpcLcx2O1r4KL57AALuf545PF9xr/LDgff3isVDnF3aZ2lp57s5MZJ/w13C2J/eA1JY9m83xYel0s0CKn6xgFGDPkxoXgshJLZjJOWLgS/rsP4vqvLug0dhEPJyxtbncom09oPxPeFesc4U0cDDDC7dWjvt8YOyIwGfq8=</ds:X509Certificate>
+</ds:X509Data>
+</ds:KeyInfo>
+</md:KeyDescriptor>
+<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:9000/auth/realms/IDP/broker/saml/endpoint"/>
+<md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</md:NameIDFormat>
+<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:9000/auth/realms/IDP/broker/saml/endpoint" isDefault="true" index="1"/>
+</md:IDPSSODescriptor>
+</md:EntityDescriptor>
